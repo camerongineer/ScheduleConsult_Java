@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="JavaFxApplication">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaFxApplication</output-path>
+    <root id="root">
+      <element id="archive" name="JavaFxApplication.jar">
+        <element id="module-output" name="JavaFxApplication" />
+      </element>
+    </root>
+  </artifact>
+</component>
