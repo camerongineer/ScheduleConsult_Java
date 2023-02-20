@@ -9,7 +9,7 @@ package com.cameronm.scheduleconsult.models;
 public abstract class NamedEntity {
 
     /**
-     * The id of the named entity
+     * The ID of the named entity
      */
     private int id;
 
@@ -19,16 +19,27 @@ public abstract class NamedEntity {
     private String name;
 
     /**
+     * The constructor for the NameEntity class
+     *
+     * @param id The ID of the named entity
+     * @param name The name of the named entity
+     */
+    protected NamedEntity(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    /**
      * The getId method returns the id of the named entity
      *
-     * @return returns the id
+     * @return returns the ID
      */
     public int getId() {
         return id;
     }
 
     /**
-     * The setId method sets the id of the named entity
+     * The setId method sets the ID of the named entity
      */
     public void setId(int id) {
         this.id = id;

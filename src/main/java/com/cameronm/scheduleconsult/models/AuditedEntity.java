@@ -32,6 +32,24 @@ public abstract class AuditedEntity extends NamedEntity {
     private String lastUpdatedBy;
 
     /**
+     * The constructor for the AuditedEntity class
+     *
+     * @param id The ID of the audited entity
+     * @param name The name of the audited entity
+     * @param createdDate The date and time that the audited entity was created
+     * @param createdBy The name of the user who created the audited entity
+     * @param lastUpdated The date and time that the audited entity was last updated
+     * @param lastUpdatedBy The name of the user who last updated the audited entity
+     */
+    protected AuditedEntity(int id, String name, LocalDateTime createdDate, String createdBy, LocalDateTime lastUpdated, String lastUpdatedBy) {
+        super(id, name);
+        this.createdDate = createdDate;
+        this.createdBy = createdBy;
+        this.lastUpdated = lastUpdated;
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    /**
      * The getCreatedDate method returns the date and time of when the audited entity was created
      *
      * @return returns the time and date of creation

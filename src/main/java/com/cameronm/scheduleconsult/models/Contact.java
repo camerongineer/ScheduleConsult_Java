@@ -16,7 +16,7 @@ public class Contact extends NamedEntity {
     /**
      * The constructor of the Contact class
      *
-     * @param contactId The id of the contact
+     * @param contactId The ID of the contact
      * @param contactName The name of the contact
      * @param email The email address of the contact
      */
