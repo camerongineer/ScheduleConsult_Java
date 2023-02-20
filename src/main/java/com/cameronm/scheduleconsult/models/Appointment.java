@@ -1,6 +1,6 @@
 package com.cameronm.scheduleconsult.models;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * The Appointment class represents an appointment entity from the database
@@ -28,12 +28,12 @@ public class Appointment extends AuditedEntity {
     /**
      * The date and time that the appointment is scheduled to start
      */
-    private LocalDateTime start;
+    private Timestamp start;
 
     /**
      * The date and time that the appointment is scheduled to end
      */
-    private LocalDateTime end;
+    private Timestamp end;
 
     /**
      * The customer ID foreign key for the appointment entity
@@ -70,15 +70,15 @@ public class Appointment extends AuditedEntity {
      */
     public Appointment(int appointmentId,
                        String title,
-                       LocalDateTime createdDate,
+                       Timestamp createdDate,
                        String createdBy,
-                       LocalDateTime lastUpdated,
+                       Timestamp lastUpdated,
                        String lastUpdatedBy,
                        String description,
                        String location,
                        String type,
-                       LocalDateTime start,
-                       LocalDateTime end,
+                       Timestamp start,
+                       Timestamp end,
                        int customerId,
                        int userId,
                        int contactId) {
@@ -146,14 +146,14 @@ public class Appointment extends AuditedEntity {
      *
      * @return returns the time and date of the start of the appointment
      */
-    public LocalDateTime getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
     /**
      * The setStart method sets the date and time of when the appointment will start
      */
-    public void setStart(LocalDateTime start) {
+    public void setStart(Timestamp start) {
         this.start = start;
     }
 
@@ -162,14 +162,14 @@ public class Appointment extends AuditedEntity {
      *
      * @return returns the time and date of the end of the appointment
      */
-    public LocalDateTime getEnd() {
+    public Timestamp getEnd() {
         return end;
     }
 
     /**
      * The setEnd method sets the date and time of when the appointment will end
      */
-    public void setEnd(LocalDateTime end) {
+    public void setEnd(Timestamp end) {
         this.end = end;
     }
 

@@ -1,6 +1,6 @@
 package com.cameronm.scheduleconsult.models;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * The AuditedEntity adds common attributes to database entities that keep track
@@ -14,7 +14,7 @@ public abstract class AuditedEntity extends NamedEntity {
     /**
      * The date and time of when the audited entity was created
      */
-    private LocalDateTime createdDate;
+    private Timestamp createdDate;
 
     /**
      * The name of the user who created the audited entity
@@ -24,7 +24,7 @@ public abstract class AuditedEntity extends NamedEntity {
     /**
      * The date and time of when the audited entity was last updated
      */
-    private LocalDateTime lastUpdated;
+    private Timestamp lastUpdated;
 
     /**
      * The name of the user who last updated the audited entity
@@ -41,7 +41,12 @@ public abstract class AuditedEntity extends NamedEntity {
      * @param lastUpdated The date and time that the audited entity was last updated
      * @param lastUpdatedBy The name of the user who last updated the audited entity
      */
-    protected AuditedEntity(int id, String name, LocalDateTime createdDate, String createdBy, LocalDateTime lastUpdated, String lastUpdatedBy) {
+    AuditedEntity(int id,
+                  String name,
+                  Timestamp createdDate,
+                  String createdBy,
+                  Timestamp lastUpdated,
+                  String lastUpdatedBy) {
         super(id, name);
         this.createdDate = createdDate;
         this.createdBy = createdBy;
@@ -54,14 +59,14 @@ public abstract class AuditedEntity extends NamedEntity {
      *
      * @return returns the time and date of creation
      */
-    public LocalDateTime getCreatedDate() {
+    public Timestamp getCreatedDate() {
         return createdDate;
     }
 
     /**
      * The setCreatedDate method sets the date and time of when the audited entity was created
      */
-    public void setCreatedDate(LocalDateTime datetime) {
+    public void setCreatedDate(Timestamp datetime) {
         this.createdDate = datetime;
     }
 
@@ -86,14 +91,14 @@ public abstract class AuditedEntity extends NamedEntity {
      *
      * @return returns the time and date of last update
      */
-    public LocalDateTime getLastUpdated() {
+    public Timestamp getLastUpdated() {
         return lastUpdated;
     }
 
     /**
      * The setLastUpdated method sets the date and time of when the audited entity was last updated
      */
-    public void setLastUpdated(LocalDateTime lastUpdated) {
+    public void setLastUpdated(Timestamp lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

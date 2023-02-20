@@ -24,7 +24,7 @@ public abstract class NamedEntity {
      * @param id The ID of the named entity
      * @param name The name of the named entity
      */
-    protected NamedEntity(int id, String name) {
+    NamedEntity(int id, String name) {
         this.id = id;
         this.name = name;
     }

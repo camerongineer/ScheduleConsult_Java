@@ -1,6 +1,6 @@
 package com.cameronm.scheduleconsult.models;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * The Country class represents a country entity from the database
@@ -22,9 +22,9 @@ public class Country extends AuditedEntity {
      */
     public Country(int countryId,
                    String country,
-                   LocalDateTime createdDate,
+                   Timestamp createdDate,
                    String createdBy,
-                   LocalDateTime lastUpdated,
+                   Timestamp lastUpdated,
                    String lastUpdatedBy) {
         super(countryId, country, createdDate, createdBy, lastUpdated, lastUpdatedBy);
     }

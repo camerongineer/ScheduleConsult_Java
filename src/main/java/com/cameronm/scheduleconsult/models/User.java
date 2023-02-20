@@ -1,6 +1,6 @@
 package com.cameronm.scheduleconsult.models;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * The User class represents a user entity from the database
@@ -28,9 +28,9 @@ public class User extends AuditedEntity {
      */
     public User(int userId,
                 String userName,
-                LocalDateTime createdDate,
+                Timestamp createdDate,
                 String createdBy,
-                LocalDateTime lastUpdated,
+                Timestamp lastUpdated,
                 String lastUpdatedBy,
                 String password) {
         super(userId, userName, createdDate, createdBy, lastUpdated, lastUpdatedBy);

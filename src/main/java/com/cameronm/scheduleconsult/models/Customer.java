@@ -1,6 +1,6 @@
 package com.cameronm.scheduleconsult.models;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * The Customer class represents a customer entity from the database
@@ -46,9 +46,9 @@ public class Customer extends AuditedEntity {
      */
     public Customer(int customerId,
                     String customerName,
-                    LocalDateTime createdDate,
+                    Timestamp createdDate,
                     String createdBy,
-                    LocalDateTime lastUpdated,
+                    Timestamp lastUpdated,
                     String lastUpdatedBy,
                     String address,
                     String postalCode,
