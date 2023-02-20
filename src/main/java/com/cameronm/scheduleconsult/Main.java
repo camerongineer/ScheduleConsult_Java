@@ -1,5 +1,6 @@
 package com.cameronm.scheduleconsult;
 
+import com.cameronm.scheduleconsult.DAO.DBConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,7 +27,9 @@ public class Main extends Application {
      * @param args command line arguments passed to the application
      */
     public static void main(String[] args) {
+        DBConnection.openConnection();
         launch(args);
+        DBConnection.closeConnection();
     }
 
     /**
@@ -39,10 +42,11 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(VIEWS_PATH + "LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-        stage.setTitle("ScheduleConsult");
+        stage.setTitle("ScheduleConsult v1.0");
         stage.show();
-//        stage.setOnCloseRequest(event -> {
-//            event.consume();
-//        });
+        stage.setOnCloseRequest(event -> {
+            event.consume();
+            System.exit(0);
+        });
     }
 }
