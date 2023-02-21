@@ -1,33 +1,38 @@
 package com.cameronm.scheduleconsult.DAO;
 
+import com.cameronm.scheduleconsult.settings.DatabaseConfig;
+import com.cameronm.scheduleconsult.settings.UserCredentialConfig;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
  * The DBConnection class is responsible for managing the connection to a MySQL database using the JDBC API.
+ * The configuration settings are located within the settings package.
  *
  * @author Cameron M
  * @since 02-19-2023
  */
-public abstract class DBConnection {
-    private static final String protocol = "jdbc";
-    private static final String vendor = ":mysql:";
-    private static final String location = "//localhost/";
-    private static final String databaseName = "client_schedule";
-    private static final String jdbcUrl = protocol + vendor + location + databaseName + "?connectionTimeZone = SERVER"; // LOCAL
-    private static final String driver = "com.mysql.cj.jdbc.Driver"; // Driver reference - version 8.0.25
-    private static final String userName = "sqlUser"; // Username
-    private static String password = "Passw0rd!"; // Password
-    public static Connection connection;  // Connection Interface
+public abstract class DBConnection implements UserCredentialConfig, DatabaseConfig {
+
+    /**
+     * The full URL for accessing the database
+     */
+    private static final String jdbcUrl = dbProtocol + dbVendor + dbLocation + dbName + dbTimezone;
+
+    /**
+     * The connection to the database
+     */
+    public static Connection connection;
 
     /**
      * The openConnection method closes the connection to the database
      */
     public static void openConnection() {
         try {
-            Class.forName(driver); // Locate Driver
-            connection = DriverManager.getConnection(jdbcUrl, userName, password); // Reference Connection object
+            Class.forName(dbDriver);
+            connection = DriverManager.getConnection(jdbcUrl, dbAdminUserName, dbAdminPassword);
             System.out.println("Database connected.");
         } catch(SQLException sqlException) {
             sqlException.printStackTrace();

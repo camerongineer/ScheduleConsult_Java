@@ -1,17 +1,20 @@
 package com.cameronm.scheduleconsult.settings;
 
 /**
- * The UserCredentialConfig class stores credential settings for accessing the server
+ * The UserCredentialConfig interface stores credential settings for accessing the database
+ *
+ * @author Cameron M
+ * @since 02-20-2023
  */
-public class UserCredentialConfig {
+public interface UserCredentialConfig {
 
     /**
      * The userName for admin access to the database
      */
-    public static final String userName = "sqlUser";
+    String dbAdminUserName = "sqlUser";
 
     /**
      * The password for admin access to the database
      */
-    public static String password = "Passw0rd!";
+    String dbAdminPassword = "Passw0rd!";
 }
