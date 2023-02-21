@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cameronm.scheduleconsult.controllers.LoginController">
    <children>
       <Ellipse fill="DODGERBLUE" layoutX="250.0" layoutY="110.0" radiusX="235.0" radiusY="96.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0" />
       <Ellipse fill="#a1a2d6" layoutX="251.0" layoutY="110.0" radiusX="183.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0" />
