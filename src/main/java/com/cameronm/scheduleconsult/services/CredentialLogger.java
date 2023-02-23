@@ -37,6 +37,7 @@ public abstract class CredentialLogger {
             pw.println("TIME:" + timestamp.format(format) +
                     " USER:" + username +
                     " SUCCESS:" + (isValidCredential ? "yes" : "no"));
+            System.out.println("Login " + (isValidCredential ? "Successful" : "Failed"));
         } catch (IOException io) {
             System.out.println("File Error: " + io.getMessage());
         }
