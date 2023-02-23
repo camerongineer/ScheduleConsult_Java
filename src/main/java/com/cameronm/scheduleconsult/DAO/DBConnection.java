@@ -27,7 +27,7 @@ public abstract class DBConnection implements UserCredentialConfig, DatabaseConf
     public static Connection connection;
 
     /**
-     * The openConnection method closes the connection to the database
+     * The openConnection method opens the connection to the database
      */
     public static void openConnection() {
         try {
