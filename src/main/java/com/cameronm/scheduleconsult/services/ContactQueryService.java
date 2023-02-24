@@ -56,4 +56,17 @@ public abstract class ContactQueryService extends QueryService {
                 email
         );
     }
+
+    /**
+     * The retrieveMatchFromDatabase method retrieves a matching entry from a contact if
+     * the appointment's contact ID matches the contact's primary ID
+     *
+     * @param contactId The primary ID of the contact that must match contact ID foreign key of the appointment
+     * @param requestedColumn The contact column type requested by the appointment
+     *
+     * @return Returns the requested match
+     */
+    public static String retrieveMatchFromDatabase(int contactId, String requestedColumn) {
+        return retrieveMatchFromDatabase(DBModels.CONTACTS, DBModels.APPOINTMENTS, contactId, requestedColumn);
+    }
 }

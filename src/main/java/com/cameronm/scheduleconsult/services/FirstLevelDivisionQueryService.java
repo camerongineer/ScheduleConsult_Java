@@ -61,4 +61,18 @@ public abstract class FirstLevelDivisionQueryService extends QueryService {
                 countryId
         );
     }
+
+    /**
+     * The retrieveMatchFromDatabase method retrieves a matching entry from a first-level division if
+     * the customer's division ID matches the first-level division's primary ID
+     *
+     * @param divisionID The primary ID of the first-level division that must match
+     *                   the division ID foreign key of the customer
+     * @param requestedColumn The first-level division column type requested by the customer
+     *
+     * @return Returns the requested match
+     */
+    public static String retrieveMatchFromDatabase(int divisionID, String requestedColumn) {
+        return retrieveMatchFromDatabase(DBModels.DIVISIONS, DBModels.CUSTOMERS, divisionID, requestedColumn);
+    }
 }
