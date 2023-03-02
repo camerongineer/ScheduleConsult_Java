@@ -18,15 +18,27 @@ import java.util.Optional;
 public interface AlertHandler {
 
     /**
-     * The about method displays a popup showing information about the program
-     *
-     * @return Returns the result of popupPrompt
+     * The aboutPopup method displays a popup showing information about the program
      */
-    static boolean aboutPopup() {
-        return popupPrompt(Alert.AlertType.INFORMATION,
+    static void aboutPopup() {
+        popupPrompt(Alert.AlertType.INFORMATION,
                 "About Program",
                 Main.WINDOW_TITLE,
                 "Developed by Cameron M / 2023");
+    }
+
+    /**
+     * The appointmentReminderPopup method displays a popup reminding of
+     * appointments coming up within a certain amount of minutes
+     *
+     * @param minutes The amount of minutes
+     * @param message The message that is displayed in the popup
+     */
+    static void appointmentReminderPopup(int minutes, String message) {
+        popupPrompt(Alert.AlertType.INFORMATION,
+                "Appointment Reminder",
+                String.format("Appointments within %d minutes", minutes),
+                message);
     }
 
     /**
@@ -37,9 +49,8 @@ public interface AlertHandler {
     static boolean closeProgramPrompt() {
         return popupPrompt(Alert.AlertType.CONFIRMATION,
                 "Confirmation",
-                "Are you sure you want to close?",
+                "Are you sure you want to close the program?",
                 "Any unsaved changes will be lost.");
-
     }
 
     /**
