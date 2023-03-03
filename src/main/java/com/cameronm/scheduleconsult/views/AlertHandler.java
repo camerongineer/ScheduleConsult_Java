@@ -42,15 +42,39 @@ public interface AlertHandler {
     }
 
     /**
+     * The confirmAction method displays a popup asking to confirm a specific action
+     *
+     * @param header The text displayed in the header of the popup
+     * @param content The text displayed in the content of the popup
+     * @return Returns the result of popupPrompt
+     */
+    static boolean confirmAction(String header, String content) {
+        return popupPrompt(Alert.AlertType.CONFIRMATION,
+                "Confirmation Dialog",
+                header,
+                content);
+    }
+
+    /**
      * The closeProgram method displays a popup asking if the program should be closed
      *
      * @return Returns the result of popupPrompt
      */
-    static boolean closeProgramPrompt() {
+    static boolean closePrompt() {
         return popupPrompt(Alert.AlertType.CONFIRMATION,
                 "Confirmation",
-                "Are you sure you want to close the program?",
+                "Are you sure you want to close?",
                 "Any unsaved changes will be lost.");
+    }
+
+    /**
+     * The customErrorPopup method displays a customized error message
+     */
+    static void customErrorPopup(String title, String header, String content) {
+        popupPrompt(Alert.AlertType.ERROR,
+                title,
+                header,
+                content);
     }
 
     /**
