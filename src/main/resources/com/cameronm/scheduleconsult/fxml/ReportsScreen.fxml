@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="673.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="150.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cameronm.scheduleconsult.controllers.ReportsController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="698.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="150.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cameronm.scheduleconsult.controllers.ReportsController">
   <tabs>
     <Tab closable="false" text="Customer Appointments">
          <content>
@@ -29,21 +29,6 @@
                         <Font name="Source Code Pro Black" size="17.0" />
                      </font>
                   </TextArea>
-                  <Label layoutX="29.0" layoutY="31.0" prefHeight="24.0" prefWidth="103.0" text="Month">
-                     <font>
-                        <Font name="Source Serif Pro Black" size="19.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="204.0" layoutY="31.0" prefHeight="24.0" prefWidth="103.0" text="Type">
-                     <font>
-                        <Font name="Source Serif Pro Black" size="19.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="506.0" layoutY="31.0" prefHeight="24.0" prefWidth="103.0" text="Total">
-                     <font>
-                        <Font name="Source Serif Pro Black" size="19.0" />
-                     </font>
-                  </Label>
                </children>
             </AnchorPane>
          </content>
@@ -110,6 +95,25 @@
                      </padding>
                   </Label>
                   <ComboBox fx:id="userModifiedAppointmentsComboBox" layoutX="68.0" layoutY="22.0" prefHeight="25.0" prefWidth="259.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Log-in Report">
+         <content>
+            <AnchorPane>
+               <children>
+                  <TextArea fx:id="logInReportTextArea" editable="false" focusTraversable="false" layoutY="60.0" opacity="0.79" prefHeight="460.0" prefWidth="673.0" promptText="No Report" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Source Code Pro Black" size="15.0" />
+                     </font>
+                  </TextArea>
                </children>
             </AnchorPane>
          </content>
