@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cameronm.scheduleconsult.controllers.MainController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+                  <MenuItem fx:id="reportsMenuItem" mnemonicParsing="false" text="Reports" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" text="Logout" />
+            <MenuItem fx:id="quitMenuItem" mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About ScheduleConsult" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <TabPane fx:id="mainTabPane" focusTraversable="false" prefHeight="672.0" prefWidth="1280.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="20.0" tabMaxWidth="200.0" tabMinHeight="10.0" tabMinWidth="200.0" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab closable="false" text="Appointments">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="375.0" layoutY="302.0" prefHeight="552.0" prefWidth="870.6666666666666" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <TableView fx:id="appointmentTableView" focusTraversable="false" prefHeight="576.0" prefWidth="1255.0" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
+                                <columns>
+                                  <TableColumn fx:id="idAppointmentTableColumn" editable="false" prefWidth="49.33331298828125" text="Appointment ID" />
+                                    <TableColumn fx:id="titleAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="228.0" text="Title" />
+                                    <TableColumn fx:id="descriptionAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="343.99993896484375" text="Description" />
+                                    <TableColumn fx:id="locationAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="256.666748046875" text="Location" />
+                                    <TableColumn fx:id="contactAppointmentTableColumn" editable="false" minWidth="-Infinity" prefWidth="160.0" text="Contact" />
+                                    <TableColumn fx:id="typeAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="228.0" text="Type" />
+                                    <TableColumn fx:id="startAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="136.66650390625" text="Start Date &amp; Time" />
+                                    <TableColumn fx:id="endAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="90.666748046875" text="End Date &amp; Time" />
+                                    <TableColumn fx:id="customerIdAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="115.3333740234375" text="Customer ID" />
+                                    <TableColumn fx:id="userIdAppointmentTableColumn" editable="false" minWidth="7.3333740234375" prefWidth="82.0" text="User ID" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </center>
+                           <top>
+                              <FlowPane alignment="TOP_RIGHT" prefHeight="13.0" prefWidth="1255.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="appointmentFilterIntervalLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="52.0" text="Interval:" visible="false">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <ComboBox fx:id="appointmentFilterIntervalComboBox" prefHeight="25.0" prefWidth="226.0" visible="false" />
+                                    <Label fx:id="appointmentFilterYearLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="56.0" text="Year:" visible="false">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <ComboBox fx:id="appointmentFilterYearComboBox" prefHeight="25.0" prefWidth="80.0" visible="false" />
+                                    <Separator orientation="VERTICAL" prefHeight="34.0" prefWidth="59.0" />
+                                    <RadioButton fx:id="appointmentFilterWeekRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="108.0" text="Filter By Week">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="appointmentFilterToggleGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="appointmentFilterMonthRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="113.0" text="Filter By Month" toggleGroup="$appointmentFilterToggleGroup" />
+                                    <RadioButton fx:id="appointmentFilterShowAllRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="70.0" selected="true" text="Show All" toggleGroup="$appointmentFilterToggleGroup" />
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets right="30.0" />
+                                 </BorderPane.margin>
+                              </FlowPane>
+                           </top>
+                           <bottom>
+                              <ButtonBar focusTraversable="false" prefHeight="40.0" prefWidth="1001.0" BorderPane.alignment="CENTER">
+                                <buttons>
+                                  <Button fx:id="createNewAppointmentButton" mnemonicParsing="false" text="Create New" />
+                                    <Button fx:id="modifyAppointmentButton" mnemonicParsing="false" text="Modify" />
+                                    <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" text="Delete" />
+                                </buttons>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets right="30.0" />
+                                 </padding>
+                              </ButtonBar>
+                           </bottom>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab closable="false" text="Customers">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="375.0" layoutY="302.0" prefHeight="552.0" prefWidth="870.6666666666666" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <TableView fx:id="customerTableView" focusTraversable="false" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
+                                 <columns>
+                                    <TableColumn fx:id="idCustomerTableColumn" prefWidth="49.33331298828125" text="ID" />
+                                    <TableColumn fx:id="nameCustomerTableColumn" minWidth="7.3333740234375" prefWidth="225.33331298828125" text="Name" />
+                                    <TableColumn fx:id="addressCustomerTableColumn" minWidth="7.3333740234375" prefWidth="432.0" text="Address" />
+                                    <TableColumn fx:id="divisionCustomerTableColumn" minWidth="7.3333740234375" prefWidth="210.0" text="Division" />
+                                    <TableColumn fx:id="postalCodeCustomerTableColumn" minWidth="7.3333740234375" prefWidth="150.0" text="Postal Code" />
+                                    <TableColumn fx:id="phoneCustomerTableColumn" minWidth="7.3333740234375" prefWidth="154.0" text="Phone Number" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </center>
+                           <bottom>
+                              <ButtonBar focusTraversable="false" prefHeight="40.0" prefWidth="1255.0" BorderPane.alignment="CENTER">
+                                 <buttons>
+                                    <Button fx:id="addCustomerButton" mnemonicParsing="false" text="Add" />
+                                    <Button fx:id="modifyCustomerButton" mnemonicParsing="false" text="Modify" />
+                                    <Button fx:id="deleteCustomerButton" mnemonicParsing="false" text="Delete" />
+                                 </buttons>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets right="30.0" />
+                                 </padding>
+                              </ButtonBar>
+                           </bottom>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TabPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label fx:id="loggedInUserLabel" maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" textFill="#9e9e9e" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+        </Label>
+        <Pane maxHeight="10.0" minHeight="10.0" prefHeight="10.0" HBox.hgrow="ALWAYS" />
+        <Label fx:id="serverConnectionStatusLabel" font="$x3" maxWidth="-1.0" text="Right status" HBox.hgrow="NEVER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="5.0" />
+               </padding></Label>
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
