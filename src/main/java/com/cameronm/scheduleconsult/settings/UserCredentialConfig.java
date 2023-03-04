@@ -11,10 +11,10 @@ public interface UserCredentialConfig {
     /**
      * The userName for admin access to the database
      */
-    String dbAdminUserName = "sqlUser";
+    String DB_ADMIN_USER_NAME = "sqlUser";
 
     /**
      * The password for admin access to the database
      */
-    String dbAdminPassword = "Passw0rd!";
+    String DB_ADMIN_PASSWORD = "Passw0rd!";
 }
