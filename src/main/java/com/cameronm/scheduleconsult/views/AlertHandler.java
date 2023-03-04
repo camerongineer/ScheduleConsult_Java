@@ -41,7 +41,7 @@ public interface AlertHandler {
     /**
      * The confirmAction method displays a popup asking to confirm a specific action
      *
-     * @param header The text displayed in the header of the popup
+     * @param header  The text displayed in the header of the popup
      * @param content The text displayed in the content of the popup
      * @return Returns the result of popupPrompt
      */
@@ -91,8 +91,8 @@ public interface AlertHandler {
     /**
      * The entityModified method displays a popup confirming that an entity as successfully been saved or deleted
      *
-     * @param model The type of database entity model
-     * @param entity The entity that has been saved
+     * @param model   The type of database entity model
+     * @param entity  The entity that has been saved
      * @param deleted Boolean specifying whether the boolean was deleted or saved
      */
     static <T extends NamedEntity> void entityModified(DBModels model, T entity, boolean deleted) {
@@ -120,9 +120,9 @@ public interface AlertHandler {
      * The popupExpandablePrompt method sets up and displays a popup where the text is expandable
      *
      * @param alertType The type of alert
-     * @param title The title of the popup screen
-     * @param header The text displayed in the header of the popup
-     * @param content The text displayed in the content of the popup
+     * @param title     The title of the popup screen
+     * @param header    The text displayed in the header of the popup
+     * @param content   The text displayed in the content of the popup
      */
     static void popupExpandablePrompt(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = setAlert(alertType, title, header);
@@ -138,9 +138,9 @@ public interface AlertHandler {
      * The popupPrompt method sets up and displays fixed size popup
      *
      * @param alertType The type of alert
-     * @param title The title of the popup screen
-     * @param header The text displayed in the header of the popup
-     * @param content The text displayed in the content of the popup
+     * @param title     The title of the popup screen
+     * @param header    The text displayed in the header of the popup
+     * @param content   The text displayed in the content of the popup
      * @return Returns true if OK is pressed
      */
     static boolean popupPrompt(Alert.AlertType alertType, String title, String header, String content) {
@@ -155,8 +155,8 @@ public interface AlertHandler {
      * The setAlert method sets the title and header of the alert
      *
      * @param alertType The type of alert
-     * @param title The title of the popup screen
-     * @param header The text displayed in the header of the popup
+     * @param title     The title of the popup screen
+     * @param header    The text displayed in the header of the popup
      * @return Return the alert
      */
     private static Alert setAlert(Alert.AlertType alertType, String title, String header) {
@@ -170,7 +170,7 @@ public interface AlertHandler {
      * The notification method creates a popup that disappears after a few seconds
      *
      * @param message The message contained in the notification
-     * @param color The color of the background of the notification
+     * @param color   The color of the background of the notification
      */
     static void notification(String message, Color color) {
         Stage popup = new Stage();
