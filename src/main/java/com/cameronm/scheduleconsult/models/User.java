@@ -52,4 +52,18 @@ public class User extends AuditedEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    /**
+     * The equals method determines whether two objects are equal
+     *
+     * @param obj The object
+     * @return Return boolean result determining if objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof User other)) {
+            return false;
+        }
+        return super.equals(other) && this.password.equals(other.password);
+    }
 }

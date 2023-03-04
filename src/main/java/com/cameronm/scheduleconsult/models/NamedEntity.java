@@ -60,4 +60,21 @@ public abstract class NamedEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * The equals method determines whether two objects are equal
+     *
+     * @param obj The object
+     * @return Return boolean result determining if objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof NamedEntity other)) {
+            return false;
+        }
+        return this.getId() == other.getId() && this.name.equals(other.name);
+    }
 }

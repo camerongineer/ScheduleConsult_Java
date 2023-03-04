@@ -1,5 +1,7 @@
 package com.cameronm.scheduleconsult.models;
 
+import com.cameronm.scheduleconsult.services.TimeConversionService;
+
 import java.sql.Timestamp;
 
 /**
@@ -219,5 +221,53 @@ public class Appointment extends AuditedEntity {
      */
     public void setContactId(int contactId) {
         this.contactId = contactId;
+    }
+
+
+    /**
+     * The equals method determines whether two objects are equal
+     *
+     * @param obj The object
+     * @return Return boolean result determining if objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Appointment other)) {
+            return false;
+        }
+        return super.equals(other) &&
+                description.equals(other.description) &&
+                location.equals(other.location) &&
+                type.equals(other.type) &&
+                start.toString().equals(other.start.toString()) &&
+                end.toString().equals(other.end.toString()) &&
+                customerId == other.customerId &&
+                userId == other.userId &&
+                contactId == other.contactId;
+    }
+
+    /**
+     * The toString method returns a string representation of the object
+     *
+     * @return Returns a string representing the object
+     */
+    @Override
+    public String toString() {
+        return  "ID: " + getId() + "\n" +
+                "Title: " + getName() + "\n" +
+                "Description: " + description + "\n" +
+                "Location: " + location + "\n" +
+                "Type: " + type + "\n" +
+                "Start: " + start
+                .toInstant()
+                .atZone(TimeConversionService.LOCAL_ZONE_ID)
+                .format(TimeConversionService.MONTH_DATE_HOURS_TIMEZONE_FORMAT) + "\n" +
+                "End: " + end
+                .toInstant()
+                .atZone(TimeConversionService.LOCAL_ZONE_ID)
+                .format(TimeConversionService.MONTH_DATE_HOURS_TIMEZONE_FORMAT) + "\n" +
+                "CustomerID: " + customerId + "\n" +
+                "UserID: " + userId + "\n" +
+                "ContactID: " + contactId + "\n\n\n";
     }
 }

@@ -117,4 +117,20 @@ public abstract class AuditedEntity extends NamedEntity {
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
     }
+
+    /**
+     * The equals method determines whether two objects are equal
+     *
+     * @param obj The object
+     * @return Return boolean result determining if objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof AuditedEntity other)) {
+            return false;
+        }
+        return super.equals(other) &&
+                this.getCreatedBy().equals(other.createdBy) &&
+                this.getCreatedDate().toString().equals(other.createdDate.toString());
+    }
 }

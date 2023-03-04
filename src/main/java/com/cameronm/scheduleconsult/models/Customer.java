@@ -124,4 +124,22 @@ public class Customer extends AuditedEntity {
     public void setDivisionId(int divisionId) {
         this.divisionId = divisionId;
     }
+
+    /**
+     * The equals method determines whether two objects are equal
+     *
+     * @param obj The object
+     * @return Return boolean result determining if objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Customer other)) {
+            return false;
+        }
+        return super.equals(other) &&
+                this.address.equals(other.address) &&
+                this.postalCode.equals(other.postalCode) &&
+                this.phone.equals(other.phone) &&
+                this.divisionId == other.divisionId;
+    }
 }

@@ -52,4 +52,18 @@ public class FirstLevelDivision extends AuditedEntity {
     public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
+
+    /**
+     * The equals method determines whether two objects are equal
+     *
+     * @param obj The object
+     * @return Return boolean result determining if objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof FirstLevelDivision other)) {
+            return false;
+        }
+        return super.equals(other) && this.countryId == other.countryId;
+    }
 }
