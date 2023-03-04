@@ -33,16 +33,16 @@ public class Customer extends AuditedEntity {
     /**
      * The constructor for the Customer class
      *
-     * @param customerId The ID of the customer entity
-     * @param customerName The name of the customer
-     * @param createdDate The date and time that the customer entity was created
-     * @param createdBy The name of the user who created the customer entity
-     * @param lastUpdated The date and time that the customer entity was last updated
+     * @param customerId    The ID of the customer entity
+     * @param customerName  The name of the customer
+     * @param createdDate   The date and time that the customer entity was created
+     * @param createdBy     The name of the user who created the customer entity
+     * @param lastUpdated   The date and time that the customer entity was last updated
      * @param lastUpdatedBy The name of the user who last updated the customer entity
-     * @param address The address of the customer
-     * @param postalCode The postal code of the customer
-     * @param phone The phone number of the customer
-     * @param divisionId The division ID foreign key for the customer
+     * @param address       The address of the customer
+     * @param postalCode    The postal code of the customer
+     * @param phone         The phone number of the customer
+     * @param divisionId    The division ID foreign key for the customer
      */
     public Customer(int customerId,
                     String customerName,

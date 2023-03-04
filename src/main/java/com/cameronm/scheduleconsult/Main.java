@@ -99,6 +99,7 @@ public class Main extends Application {
                 null,
                 LoginController.class,
                 null,
+                null,
                 false,
                 true,
                 false);

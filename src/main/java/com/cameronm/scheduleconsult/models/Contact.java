@@ -16,9 +16,9 @@ public class Contact extends NamedEntity {
     /**
      * The constructor of the Contact class
      *
-     * @param contactId The ID of the contact
+     * @param contactId   The ID of the contact
      * @param contactName The name of the contact
-     * @param email The email address of the contact
+     * @param email       The email address of the contact
      */
     public Contact(int contactId, String contactName, String email) {
         super(contactId, contactName);

@@ -18,13 +18,13 @@ public class FirstLevelDivision extends AuditedEntity {
     /**
      * The constructor for the FirstLevelDivision class
      *
-     * @param divisionId The ID of the first level division entity
-     * @param division The name of the first level division
-     * @param createdDate The date and time that the first level division entity was created
-     * @param createdBy The name of the user who created the first level division entity
-     * @param lastUpdated The date and time that the first level division entity was last updated
+     * @param divisionId    The ID of the first level division entity
+     * @param division      The name of the first level division
+     * @param createdDate   The date and time that the first level division entity was created
+     * @param createdBy     The name of the user who created the first level division entity
+     * @param lastUpdated   The date and time that the first level division entity was last updated
      * @param lastUpdatedBy The name of the user who last updated the first level division entity
-     * @param countryId The country ID foreign key for the first level division entity
+     * @param countryId     The country ID foreign key for the first level division entity
      */
     public FirstLevelDivision(int divisionId,
                               String division,

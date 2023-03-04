@@ -56,19 +56,19 @@ public class Appointment extends AuditedEntity {
      * The constructor for the Appointment class
      *
      * @param appointmentId The ID of the appointment entity
-     * @param title The title of the appointment
-     * @param createdDate The date and time that the appointment entity was created
-     * @param createdBy The name of the user who created the appointment entity
-     * @param lastUpdated The date and time that the appointment entity was last updated
+     * @param title         The title of the appointment
+     * @param createdDate   The date and time that the appointment entity was created
+     * @param createdBy     The name of the user who created the appointment entity
+     * @param lastUpdated   The date and time that the appointment entity was last updated
      * @param lastUpdatedBy The name of the user who last updated the appointment entity
-     * @param description The description of the appointment
-     * @param location The location of the appointment
-     * @param type The type of appointment
-     * @param start The date and time that the appointment is scheduled to start
-     * @param end The date and time that the appointment is scheduled to end
-     * @param customerId The customer ID foreign key for the appointment entity
-     * @param userId The user ID foreign key for the appointment entity
-     * @param contactId The contact ID foreign key for the appointment entity
+     * @param description   The description of the appointment
+     * @param location      The location of the appointment
+     * @param type          The type of appointment
+     * @param start         The date and time that the appointment is scheduled to start
+     * @param end           The date and time that the appointment is scheduled to end
+     * @param customerId    The customer ID foreign key for the appointment entity
+     * @param userId        The user ID foreign key for the appointment entity
+     * @param contactId     The contact ID foreign key for the appointment entity
      */
     public Appointment(int appointmentId,
                        String title,
@@ -253,7 +253,7 @@ public class Appointment extends AuditedEntity {
      */
     @Override
     public String toString() {
-        return  "ID: " + getId() + "\n" +
+        return "ID: " + getId() + "\n" +
                 "Title: " + getName() + "\n" +
                 "Description: " + description + "\n" +
                 "Location: " + location + "\n" +

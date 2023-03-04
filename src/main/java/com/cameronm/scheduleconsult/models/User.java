@@ -18,13 +18,13 @@ public class User extends AuditedEntity {
     /**
      * The constructor for the FirstLevelDivision class
      *
-     * @param userId The ID of the user
-     * @param userName The username of the user
-     * @param createdDate The date and time that the user entity was created
-     * @param createdBy The name of the user who created the user entity
-     * @param lastUpdated The date and time that the user entity was last updated
+     * @param userId        The ID of the user
+     * @param userName      The username of the user
+     * @param createdDate   The date and time that the user entity was created
+     * @param createdBy     The name of the user who created the user entity
+     * @param lastUpdated   The date and time that the user entity was last updated
      * @param lastUpdatedBy The name of the user who last updated the user entity
-     * @param password The password of the user
+     * @param password      The password of the user
      */
     public User(int userId,
                 String userName,

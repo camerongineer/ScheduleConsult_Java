@@ -21,7 +21,7 @@ public abstract class NamedEntity {
     /**
      * The constructor for the NameEntity class
      *
-     * @param id The ID of the named entity
+     * @param id   The ID of the named entity
      * @param name The name of the named entity
      */
     NamedEntity(int id, String name) {

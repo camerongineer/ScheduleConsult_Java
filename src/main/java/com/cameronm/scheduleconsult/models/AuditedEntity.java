@@ -3,8 +3,8 @@ package com.cameronm.scheduleconsult.models;
 import java.sql.Timestamp;
 
 /**
- * The AuditedEntity adds common attributes to database entities that keep track
- * of dates and times of when they were created/updated
+ * The AuditedEntity adds common attributes to database entities that keep track of dates and times of when they were
+ * created/updated
  *
  * @author Cameron M
  * @since 02-20-2023
@@ -34,11 +34,11 @@ public abstract class AuditedEntity extends NamedEntity {
     /**
      * The constructor for the AuditedEntity class
      *
-     * @param id The ID of the audited entity
-     * @param name The name of the audited entity
-     * @param createdDate The date and time that the audited entity was created
-     * @param createdBy The name of the user who created the audited entity
-     * @param lastUpdated The date and time that the audited entity was last updated
+     * @param id            The ID of the audited entity
+     * @param name          The name of the audited entity
+     * @param createdDate   The date and time that the audited entity was created
+     * @param createdBy     The name of the user who created the audited entity
+     * @param lastUpdated   The date and time that the audited entity was last updated
      * @param lastUpdatedBy The name of the user who last updated the audited entity
      */
     AuditedEntity(int id,
