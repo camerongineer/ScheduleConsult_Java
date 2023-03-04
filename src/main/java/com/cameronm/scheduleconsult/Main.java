@@ -1,10 +1,9 @@
 package com.cameronm.scheduleconsult;
 
 import com.cameronm.scheduleconsult.DAO.DBConnection;
+import com.cameronm.scheduleconsult.controllers.LoginController;
+import com.cameronm.scheduleconsult.utilities.ScreenLoader;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -95,17 +94,14 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage logInStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(VIEWS_PATH + "LoginScreen.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root);
-        logInStage.setScene(scene);
-        logInStage.setTitle(WINDOW_TITLE);
-        logInStage.setResizable(false);
-        logInStage.show();
-        logInStage.setOnCloseRequest(event -> {
-            event.consume();
-            safeExit();
-        });
+        ScreenLoader.loadScreen(Main.VIEWS_PATH + "LoginScreen.fxml",
+                Main.WINDOW_TITLE,
+                null,
+                LoginController.class,
+                null,
+                false,
+                true,
+                false);
     }
 
     /**
