@@ -1,9 +1,6 @@
-package com.cameronm.scheduleconsult.services;
+package com.cameronm.scheduleconsult.utilities;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -40,6 +37,25 @@ public abstract class CredentialLogger {
             System.out.println("Login " + (isValidCredential ? "Successful" : "Failed"));
         } catch (IOException io) {
             System.out.println("File Error: " + io.getMessage());
+        }
+    }
+
+    /**
+     * The report method returns the log to a string
+     *
+     * @return Returns the contents of the log
+     */
+    public static String report() {
+        try (BufferedReader br = new BufferedReader(new FileReader(LOGIN_ACTIVITY_FILE))) {
+            StringBuilder report = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                report.append(line).append("\n");
+            }
+            return report.toString();
+        } catch (IOException io) {
+            System.out.println("File Error: " + io.getMessage());
+            return "";
         }
     }
 }
