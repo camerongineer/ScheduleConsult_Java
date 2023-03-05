@@ -9,8 +9,8 @@ import java.sql.*;
 import java.util.HashMap;
 
 /**
- * The UserQueryService class is responsible for converting entries
- * in the users table of the database into User instances
+ * The UserQueryService class is responsible for converting entries in the users table of the database into User
+ * instances
  *
  * @author Cameron M
  * @since 02-22-2023
@@ -23,8 +23,7 @@ public abstract class UserQueryService extends QueryService {
      * @return Returns an ObservableList of all users
      */
     public static ObservableList<User> getAllUsers() {
-        String sqlQuery = DBQueries.SELECT_ALL;
-        return getUsers(sqlQuery);
+        return getUsers(DBQueries.SELECT_ALL);
     }
 
     /**
@@ -38,25 +37,37 @@ public abstract class UserQueryService extends QueryService {
     }
 
     /**
-     * The getUser method takes a results set and previously retrieved common attributes and
-     * retrieves all the rest of the remaining user attributes and returns the user
+     * The getUser method takes a results set and previously retrieved common attributes and retrieves all the rest of
+     * the remaining user attributes and returns the user
      *
-     * @param results The results set passed in from an entry in the users table
+     * @param results          The results set passed in from an entry in the users table
      * @param entityAttributes Common attribute types that are shared by all audited entities
      * @return Returns a user
      * @throws SQLException Throws an SQLException of the ResultSet is invalid
      */
     static User getUser(ResultSet results, HashMap<String, String> entityAttributes) throws SQLException {
-        entityAttributes.put("password", results.getString(DBModels.USERS.getAttributes().get("password")));
+        entityAttributes.put("password",
+                             results.getString(DBModels.USERS.getAttributes()
+                                                             .get("password")));
         String password = entityAttributes.get("password");
         return new User(
                 Integer.parseInt(entityAttributes.get("id")),
                 entityAttributes.get("name"),
-                Timestamp.valueOf(entityAttributes.get("createDate")),
+                TimeConversionService.convertFromServerTime(Timestamp.valueOf(entityAttributes.get("createDate"))),
                 entityAttributes.get("createdBy"),
-                Timestamp.valueOf(entityAttributes.get("lastUpdate")),
+                TimeConversionService.convertFromServerTime(Timestamp.valueOf(entityAttributes.get("lastUpdate"))),
                 entityAttributes.get("lastUpdatedBy"),
                 password
         );
+    }
+
+    /**
+     * The retrieveUserById method returns a user specified by the user ID passed in
+     *
+     * @param userId The ID of the user
+     * @return Returns the user
+     */
+    public static User retrieveUserById(int userId) {
+        return QueryService.getEntityById(DBModels.USERS, userId);
     }
 }
