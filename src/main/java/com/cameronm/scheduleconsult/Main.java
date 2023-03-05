@@ -68,6 +68,11 @@ public class Main extends Application {
     public static final LocalDate APPOINTMENT_EARLIEST_DATE = LocalDate.of(2000, 1, 1);
 
     /**
+     * The user is reminded any appointments within this number of minutes at log-in
+     */
+    public static final int APPOINTMENT_REMINDER_MINUTES = 15;
+
+    /**
      * The title of the program
      */
     public static final String PROGRAM_TITLE = "ScheduleConsult";
