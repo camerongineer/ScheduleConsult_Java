@@ -23,8 +23,7 @@ public abstract class CountryQueryService extends QueryService {
      * @return Returns an ObservableList of all contacts
      */
     public static ObservableList<Country> getAllCountries() {
-        String sqlQuery = DBQueries.SELECT_ALL;
-        return getCountries(sqlQuery);
+        return getCountries(DBQueries.SELECT_ALL);
     }
 
     /**
@@ -47,10 +46,20 @@ public abstract class CountryQueryService extends QueryService {
         return new Country(
                 Integer.parseInt(entityAttributes.get("id")),
                 entityAttributes.get("name"),
-                Timestamp.valueOf(entityAttributes.get("createDate")),
+                TimeConversionService.convertFromServerTime(Timestamp.valueOf(entityAttributes.get("createDate"))),
                 entityAttributes.get("createdBy"),
-                Timestamp.valueOf(entityAttributes.get("lastUpdate")),
+                TimeConversionService.convertFromServerTime(Timestamp.valueOf(entityAttributes.get("lastUpdate"))),
                 entityAttributes.get("lastUpdatedBy")
         );
+    }
+
+    /**
+     * The getCountryById method returns a country specified by the ID
+     *
+     * @param countryId The ID of the country
+     * @return returns a country entity
+     */
+    public static Country getCountryById(int countryId) {
+        return QueryService.getEntityById(DBModels.COUNTRIES, countryId);
     }
 }

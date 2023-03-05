@@ -27,7 +27,7 @@ public abstract class QueryService implements DBQueries {
     private static boolean execute(String sqlQuery) {
         try (
                 Statement statement = DBConnection.getConnection()
-                                                  .prepareStatement(sqlQuery);
+                                                  .prepareStatement(sqlQuery)
         ) {
             statement.execute(sqlQuery);
             return true;
@@ -155,7 +155,7 @@ public abstract class QueryService implements DBQueries {
     }
 
     /**
-     * The retrieveMatchFromDatabase method returns a string of a requested column item of matching entity primary and
+     * The getMatchFromDatabase method returns a string of a requested column item of matching entity primary and
      * foreign keys
      *
      * @param primaryEntity   The model whose ID matches its primary key
@@ -164,10 +164,10 @@ public abstract class QueryService implements DBQueries {
      * @param requestedColumn The requested column
      * @return returns a string of the requested column
      */
-    static String retrieveMatchFromDatabase(DBModels primaryEntity,
-                                            DBModels foreignEntity,
-                                            int primaryId,
-                                            String requestedColumn) {
+    static String getMatchFromDatabase(DBModels primaryEntity,
+                                       DBModels foreignEntity,
+                                       int primaryId,
+                                       String requestedColumn) {
         String primaryTable = primaryEntity.getTableName();
         String foreignTable = foreignEntity.getTableName();
         String matchingColumnName = primaryEntity.getAttributes()
