@@ -3,13 +3,11 @@ package com.cameronm.scheduleconsult.DAO;
 import com.cameronm.scheduleconsult.settings.DatabaseConfig;
 import com.cameronm.scheduleconsult.settings.UserCredentialConfig;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
- * The DBConnection class is responsible for managing the connection to a MySQL database using the JDBC API.
- * The configuration settings are located within the settings package.
+ * The DBConnection class is responsible for managing the connection to a MySQL database using the JDBC API. The
+ * configuration settings are located within the settings package.
  *
  * @author Cameron M
  * @since 02-19-2023
@@ -19,7 +17,7 @@ public abstract class DBConnection implements UserCredentialConfig, DatabaseConf
     /**
      * The full URL for accessing the database
      */
-    private static final String jdbcUrl = dbProtocol + dbVendor + dbLocation + dbName + dbTimezone;
+    private static final String JDBC_URL = DB_PROTOCOL + DB_VENDOR + DB_LOCATION + DB_NAME + DB_TIMEZONE;
 
     /**
      * The connection to the database
@@ -31,12 +29,12 @@ public abstract class DBConnection implements UserCredentialConfig, DatabaseConf
      */
     public static void openConnection() {
         try {
-            Class.forName(dbDriver);
-            connection = DriverManager.getConnection(jdbcUrl, dbAdminUserName, dbAdminPassword);
+            Class.forName(DB_DRIVER);
+            connection = DriverManager.getConnection(JDBC_URL, DB_ADMIN_USER_NAME, DB_ADMIN_PASSWORD);
             System.out.println("Database connected.");
-        } catch(SQLException sqlException) {
+        } catch (SQLException sqlException) {
             sqlException.printStackTrace();
-        } catch(ClassNotFoundException classNotFoundException) {
+        } catch (ClassNotFoundException classNotFoundException) {
             System.out.println("ClassNotFound Exception:" + classNotFoundException.getMessage());
         }
     }
@@ -57,7 +55,7 @@ public abstract class DBConnection implements UserCredentialConfig, DatabaseConf
         try {
             connection.close();
             System.out.println("Database disconnected.");
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
         }
     }

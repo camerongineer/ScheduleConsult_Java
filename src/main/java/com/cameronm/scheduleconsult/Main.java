@@ -38,8 +38,13 @@ public class Main extends Application {
     /**
      * The days of the week that company is open for appointment scheduling purposes
      */
-    public static final HashSet<DayOfWeek> COMPANY_OPEN_DAYS = new HashSet<>(Set.of(DayOfWeek.SUNDAY, DayOfWeek.MONDAY,
-            DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY)
+    public static final HashSet<DayOfWeek> COMPANY_OPEN_DAYS = new HashSet<>(Set.of(DayOfWeek.SUNDAY,
+                                                                                    DayOfWeek.MONDAY,
+                                                                                    DayOfWeek.TUESDAY,
+                                                                                    DayOfWeek.WEDNESDAY,
+                                                                                    DayOfWeek.THURSDAY,
+                                                                                    DayOfWeek.FRIDAY,
+                                                                                    DayOfWeek.SATURDAY)
     );
 
     /**
@@ -95,14 +100,14 @@ public class Main extends Application {
     @Override
     public void start(Stage logInStage) throws IOException {
         ScreenLoader.loadScreen(Main.VIEWS_PATH + "LoginScreen.fxml",
-                Main.WINDOW_TITLE,
-                null,
-                LoginController.class,
-                null,
-                null,
-                false,
-                true,
-                false);
+                                Main.WINDOW_TITLE,
+                                null,
+                                LoginController.class,
+                                null,
+                                null,
+                                false,
+                                true,
+                                false);
     }
 
     /**

@@ -1,5 +1,7 @@
 package com.cameronm.scheduleconsult.settings;
 
+import java.time.ZoneId;
+
 /**
  * The DatabaseConfig interface stores configuration settings for the database
  *
@@ -34,7 +36,12 @@ public interface DatabaseConfig {
     String DB_DRIVER = "com.mysql.cj.jdbc.Driver"; // version 8.0.25
 
     /**
-     * The timezone used when connecting to the database
+     * Specifies the timezone that the server should use when interpreting datetime values
      */
     String DB_TIMEZONE = "?connectionTimeZone = SERVER";
+
+    /**
+     * The ZoneId of that the server utilizes
+     */
+    ZoneId DB_ZONE_ID = ZoneId.of("UTC");
 }

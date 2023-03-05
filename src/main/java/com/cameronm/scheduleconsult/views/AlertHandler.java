@@ -33,9 +33,9 @@ public interface AlertHandler {
      */
     static void aboutPopup() {
         popupPrompt(Alert.AlertType.INFORMATION,
-                "About Program",
-                Main.WINDOW_TITLE,
-                "Developed by Cameron M / 2023");
+                    "About Program",
+                    Main.WINDOW_TITLE,
+                    "Developed by Cameron M / 2023");
     }
 
     /**
@@ -47,9 +47,9 @@ public interface AlertHandler {
      */
     static boolean confirmAction(String header, String content) {
         return popupPrompt(Alert.AlertType.CONFIRMATION,
-                "Confirmation Dialog",
-                header,
-                content);
+                           "Confirmation Dialog",
+                           header,
+                           content);
     }
 
     /**
@@ -59,9 +59,9 @@ public interface AlertHandler {
      */
     static boolean closePrompt() {
         return popupPrompt(Alert.AlertType.CONFIRMATION,
-                "Confirmation",
-                "Are you sure you want to close?",
-                "Any unsaved changes will be lost.");
+                           "Confirmation",
+                           "Are you sure you want to close?",
+                           "Any unsaved changes will be lost.");
     }
 
     /**
@@ -69,9 +69,9 @@ public interface AlertHandler {
      */
     static void customErrorPopup(String title, String header, String content) {
         popupPrompt(Alert.AlertType.ERROR,
-                title,
-                header,
-                content);
+                    title,
+                    header,
+                    content);
     }
 
     /**
@@ -82,10 +82,14 @@ public interface AlertHandler {
      */
     static boolean deleteEntityPrompt(DBModels model) {
         return popupPrompt(Alert.AlertType.CONFIRMATION,
-                "Confirm Delete",
-                String.format("Are you sure you want to delete this %s?"
-                        , model.getTableName().substring(0, model.getTableName().length() - 1)),
-                "This action cannot be undone.");
+                           "Confirm Delete",
+                           String.format("Are you sure you want to delete this %s?"
+                                   ,
+                                         model.getTableName()
+                                              .substring(0,
+                                                         model.getTableName()
+                                                              .length() - 1)),
+                           "This action cannot be undone.");
     }
 
     /**
@@ -96,8 +100,13 @@ public interface AlertHandler {
      * @param deleted Boolean specifying whether the boolean was deleted or saved
      */
     static <T extends NamedEntity> void entityModified(DBModels model, T entity, boolean deleted) {
-        String type = model.getTableName().toUpperCase().charAt(0) +
-                model.getTableName().substring(1, model.getTableName().length() - 1);
+        String type = model.getTableName()
+                           .toUpperCase()
+                           .charAt(0) +
+                model.getTableName()
+                     .substring(1,
+                                model.getTableName()
+                                     .length() - 1);
         String id = String.valueOf(entity.getId());
         String name = entity.getName();
         String modificationType = deleted ? "deleted" : "saved";
@@ -111,9 +120,9 @@ public interface AlertHandler {
      */
     static boolean logOutPrompt() {
         return popupPrompt(Alert.AlertType.CONFIRMATION,
-                "Confirmation",
-                "Are you sure you want to log out?",
-                "Any unsaved changes will be lost.");
+                           "Confirmation",
+                           "Are you sure you want to log out?",
+                           "Any unsaved changes will be lost.");
     }
 
     /**
@@ -129,8 +138,10 @@ public interface AlertHandler {
         TextArea textArea = new TextArea(content);
         textArea.setEditable(false);
         textArea.setWrapText(true);
-        alert.getDialogPane().setContent(textArea);
-        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.getDialogPane()
+             .setContent(textArea);
+        alert.getDialogPane()
+             .setMinHeight(Region.USE_PREF_SIZE);
         alert.showAndWait();
     }
 
@@ -182,11 +193,14 @@ public interface AlertHandler {
         Label label = new Label(message);
         label.setFont(new Font("Arial", 18));
         VBox layout = new VBox(10);
-        layout.getChildren().add(label);
+        layout.getChildren()
+              .add(label);
         layout.setAlignment(Pos.CENTER);
         layout.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         layout.setBorder(new Border(new BorderStroke(Color.BLACK,
-                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                                                     BorderStrokeStyle.SOLID,
+                                                     CornerRadii.EMPTY,
+                                                     BorderWidths.DEFAULT)));
         layout.setPrefSize(500, 150);
 
         Scene scene = new Scene(layout);

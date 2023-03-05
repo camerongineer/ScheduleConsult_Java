@@ -239,8 +239,10 @@ public class Appointment extends AuditedEntity {
                 description.equals(other.description) &&
                 location.equals(other.location) &&
                 type.equals(other.type) &&
-                start.toString().equals(other.start.toString()) &&
-                end.toString().equals(other.end.toString()) &&
+                start.toString()
+                     .equals(other.start.toString()) &&
+                end.toString()
+                   .equals(other.end.toString()) &&
                 customerId == other.customerId &&
                 userId == other.userId &&
                 contactId == other.contactId;

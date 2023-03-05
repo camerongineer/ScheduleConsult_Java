@@ -130,7 +130,10 @@ public abstract class AuditedEntity extends NamedEntity {
             return false;
         }
         return super.equals(other) &&
-                this.getCreatedBy().equals(other.createdBy) &&
-                this.getCreatedDate().toString().equals(other.createdDate.toString());
+                this.getCreatedBy()
+                    .equals(other.createdBy) &&
+                this.getCreatedDate()
+                    .toString()
+                    .equals(other.createdDate.toString());
     }
 }

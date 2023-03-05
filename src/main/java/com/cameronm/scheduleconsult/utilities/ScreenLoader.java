@@ -1,6 +1,7 @@
 package com.cameronm.scheduleconsult.utilities;
 
 import com.cameronm.scheduleconsult.Main;
+import com.cameronm.scheduleconsult.controllers.LoginController;
 import com.cameronm.scheduleconsult.controllers.MainController;
 import com.cameronm.scheduleconsult.views.AlertHandler;
 import javafx.fxml.FXMLLoader;
@@ -20,30 +21,44 @@ import java.io.IOException;
  */
 public abstract class ScreenLoader {
 
+    private static Stage activeStage;
+
     /**
      * The loadScreen method loads a screen within the program
      *
-     * @param screenLocation The location of the fxml screen file
-     * @param title The title displayed in the title bar of the screen
-     * @param controlObject The control object passed used to pass a controller to another controller class
-     * @param controllerClass The controller class of the screen
-     * @param onHiddenCallback The runnable performed when a window is hidden
-     * @param isResizable Boolean specifying if the screen is resizable
+     * @param <T>                A type of controller class
+     * @param screenLocation     The location of the fxml screen file
+     * @param title              The title displayed in the title bar of the screen
+     * @param controlObject      The control object passed used to pass a controller to another controller class
+     * @param nextController     The controller class of the next screen
+     * @param currentController  The instance of the currentController
+     * @param onHiddenCallback   The runnable performed when a window is hidden
+     * @param isResizable        Boolean specifying if the screen is resizable
      * @param closeProgramOnExit Boolean specifying program should close after window is closed
-     * @param popupOnClose Boolean specifying if a popup should occur when attempting the close the window
+     * @param popupOnClose       Boolean specifying if a popup should occur when attempting the close the window
      * @return Returns a controller object
-     * @param <T> A type of controller class
      * @throws IOException Throws an IOException if controllerClass doesn't match the class of the screen
      */
-    public static <T> T loadScreen(String screenLocation, String title, Control controlObject,
-                                   Class<T> controllerClass, Runnable onHiddenCallback, boolean isResizable,
-                                   boolean closeProgramOnExit, boolean popupOnClose) throws IOException {
+    public static <T> T loadScreen(String screenLocation,
+                                   String title,
+                                   Control controlObject,
+                                   Class<T> nextController,
+                                   Object currentController, Runnable onHiddenCallback,
+                                   boolean isResizable,
+                                   boolean closeProgramOnExit,
+                                   boolean popupOnClose) throws IOException {
+        if (activeStage != null &&
+                (!(currentController instanceof MainController) || nextController == LoginController.class)) {
+            activeStage.close();
+        }
         Stage stage = new Stage();
+        activeStage = stage;
         stage.initModality(Modality.APPLICATION_MODAL);
         if (controlObject != null) {
-            stage.initOwner(controlObject.getScene().getWindow());
+            stage.initOwner(controlObject.getScene()
+                                         .getWindow());
         }
-        FXMLLoader loader = new FXMLLoader(MainController.class.getResource(screenLocation));
+        FXMLLoader loader = new FXMLLoader(nextController.getResource(screenLocation));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setTitle(title);
@@ -63,12 +78,12 @@ public abstract class ScreenLoader {
             }
         });
         T controller = loader.getController();
-        if (controllerClass.isInstance(controller)) {
+        if (nextController.isInstance(controller)) {
             loader.setController(controller);
             stage.show();
             return controller;
         } else {
-            throw new ClassCastException("Controller class " + controllerClass.getSimpleName() + " not found");
+            throw new ClassCastException("Controller class " + nextController.getSimpleName() + " not found");
         }
     }
 }
