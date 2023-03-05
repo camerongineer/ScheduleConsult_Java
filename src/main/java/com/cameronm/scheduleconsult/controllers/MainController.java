@@ -325,7 +325,7 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
     }
 
     /**
-     * The setLabels method sets the label in for the main screen
+     * The setLabels method sets labels on the main screen
      */
     private void setLabels() {
         boolean isConnected = false;
@@ -358,7 +358,7 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
                                   .getContactId();
             String requestedColumn = DBModels.CONTACTS.getAttributes()
                                                       .get("name");
-            String contactName = ContactQueryService.retrieveMatchFromDatabase(contactId, requestedColumn);
+            String contactName = ContactQueryService.getMatchFromDatabase(contactId, requestedColumn);
             return new SimpleStringProperty(contactName);
         });
         typeAppointmentTableColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -565,7 +565,7 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
                                             true);
             if (isModifyAppointment) {
                 appointmentEntryController.setAppointment(appointmentToBeModified);
-                appointmentEntryController.initAppointmentFields(appointmentToBeModified);
+                appointmentEntryController.initAppointmentFields();
             }
         } catch (IOException io) {
             System.out.println("Loading Appointment Screen Unsuccessful");
@@ -603,7 +603,7 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
                                      .getDivisionId();
             String requestedColumn = DBModels.DIVISIONS.getAttributes()
                                                        .get("name");
-            String division = FirstLevelDivisionQueryService.retrieveMatchFromDatabase(divisionId, requestedColumn);
+            String division = FirstLevelDivisionQueryService.getMatchFromDatabase(divisionId, requestedColumn);
             return new SimpleStringProperty(division);
         });
         phoneCustomerTableColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));

@@ -39,12 +39,6 @@ public class CustomerEntryController implements Initializable, DBQueries {
     private TextField addressTextField;
 
     /**
-     * The cancel button
-     */
-    @FXML
-    private Button cancelButton;
-
-    /**
      * The ComboBox containing country entities
      */
     @FXML
@@ -79,6 +73,12 @@ public class CustomerEntryController implements Initializable, DBQueries {
      */
     @FXML
     private TextField postalCodeTextField;
+
+    /**
+     * The cancel button
+     */
+    @FXML
+    private Button cancelButton;
 
     /**
      * The save button
@@ -170,8 +170,8 @@ public class CustomerEntryController implements Initializable, DBQueries {
                 countryComboBox
                         .getSelectionModel()
                         .select(CountryQueryService
-                                        .retrieveCountryById(divisionComboBox.getValue()
-                                                                             .getCountryId()));
+                                        .getCountryById(divisionComboBox.getValue()
+                                                                        .getCountryId()));
             }
         });
         UIHelper.setEntityComboBox(CountryQueryService.getAllCountries(), countryComboBox);
@@ -193,9 +193,9 @@ public class CustomerEntryController implements Initializable, DBQueries {
         addressTextField.setText(customer.getAddress());
         postalCodeTextField.setText(customer.getPostalCode());
         FirstLevelDivision customerDivision = FirstLevelDivisionQueryService
-                .retrieveDivisionById(customer.getDivisionId());
+                .getDivisionById(customer.getDivisionId());
         Country customerCountry = CountryQueryService
-                .retrieveCountryById(customerDivision.getCountryId());
+                .getCountryById(customerDivision.getCountryId());
         countryComboBox.getSelectionModel()
                        .select(customerCountry);
         UIHelper.setEntityComboBox(filterDivisions(customerDivision.getCountryId()), divisionComboBox);
@@ -227,7 +227,7 @@ public class CustomerEntryController implements Initializable, DBQueries {
      */
     private ObservableList<FirstLevelDivision> filterDivisions(Integer countryId) {
         if (countryId != null) {
-            return FirstLevelDivisionQueryService.retrieveAllDivisionsByCountryId(countryId);
+            return FirstLevelDivisionQueryService.getAllDivisionsByCountryId(countryId);
         }
         return FirstLevelDivisionQueryService.getAllDivisions();
     }

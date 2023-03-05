@@ -550,7 +550,7 @@ public class AppointmentEntryController implements Initializable, TimeConversion
         if (InputValidator.isValidEntityId(customerIdTextField.getText())) {
             int customerId = Integer.parseInt(customerIdTextField.getText()
                                                                  .trim());
-            if (CustomerQueryService.retrieveCustomerById(customerId) == null) {
+            if (CustomerQueryService.getCustomerById(customerId) == null) {
                 exceptions.add(new InstantiationException("No customer with this ID exists in the database"));
             }
         }
