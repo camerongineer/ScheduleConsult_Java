@@ -4,20 +4,17 @@ import com.cameronm.scheduleconsult.DAO.DBModels;
 import com.cameronm.scheduleconsult.DAO.DBQueries;
 import com.cameronm.scheduleconsult.Main;
 import com.cameronm.scheduleconsult.models.User;
-import com.cameronm.scheduleconsult.services.CredentialLogger;
+import com.cameronm.scheduleconsult.utilities.CredentialLogger;
 import com.cameronm.scheduleconsult.services.UserQueryService;
+import com.cameronm.scheduleconsult.utilities.ScreenLoader;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -117,7 +114,7 @@ public class LoginController implements Initializable, DBQueries {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.resourceBundle = ResourceBundle
-                .getBundle("com.cameronm.scheduleconsult.i18n.loginscreen.login", Main.locale);
+                .getBundle("com.cameronm.scheduleconsult.i18n.loginscreen.login", Main.LOCALE);
         setLabels(this.resourceBundle);
     }
 
@@ -135,6 +132,9 @@ public class LoginController implements Initializable, DBQueries {
         signInButton.setText(resourceBundle.getString("signInButton"));
     }
 
+    /**
+     * The logIn method logs in the user
+     */
     private void logIn() {
         String username = usernameTextField.getText().toLowerCase();
         String password = passwordPasswordField.getText();
@@ -203,7 +203,7 @@ public class LoginController implements Initializable, DBQueries {
     /**
      * The getProgramUser method returns the user who is signed in to the program
      */
-    protected static User getProgramUser() {
+    public static User getProgramUser() {
         return programUser;
     }
 
@@ -212,27 +212,24 @@ public class LoginController implements Initializable, DBQueries {
      *
      * @param programUser The user who signed in
      */
-    private static void setProgramUser(User programUser) {
+    public static void setProgramUser(User programUser) {
         LoginController.programUser = programUser;
     }
 
     /**
-     * The loadMainScreen method
+     * The loadMainScreen method loads the Main Screen of the application
      */
     private void loadMainScreen() {
         try {
-            Stage logInStage = (Stage) titleLabel.getScene().getWindow();
-            Stage mainStage = new Stage();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.VIEWS_PATH + "MainScreen.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-
-            mainStage.setScene(scene);
-            mainStage.setTitle(Main.WINDOW_TITLE);
-            mainStage.show();
-            logInStage.close();
+            ScreenLoader.loadScreen(Main.VIEWS_PATH + "MainScreen.fxml",
+                    Main.WINDOW_TITLE,
+                    null,
+                    MainController.class,
+                    this,
+                    null,
+                    true,
+                    true,
+                    true);
         } catch(IOException io) {
             System.out.println("Loading Main Screen Unsuccessful");
         }
