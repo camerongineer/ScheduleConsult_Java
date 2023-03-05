@@ -508,7 +508,7 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
      * The appointmentReminder method displays a popup specifying all appointment within a certain number of minutes
      */
     private void appointmentReminder() {
-        Timestamp now = TimeConversionService.getCurrentTimeInDatabaseTime();
+        Timestamp now = TimeConversionService.getCurrentTimeInServerTime();
         Timestamp fifteenMinutesFromNow = Timestamp.valueOf(now.toLocalDateTime()
                                                                .plusMinutes(Main.APPOINTMENT_REMINDER_MINUTES));
         ObservableList<Appointment> appointments =
