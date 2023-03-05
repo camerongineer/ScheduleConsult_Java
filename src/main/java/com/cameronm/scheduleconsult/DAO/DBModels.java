@@ -49,8 +49,8 @@ package com.cameronm.scheduleconsult.DAO;
 import java.util.Map;
 
 /**
- * The DBModels Enum class represents the different database models used in the application.
- * Each model has a corresponding table name and a map of attributes and their column names in the table.
+ * The DBModels Enum class represents the different database models used in the application. Each model has a
+ * corresponding table name and a map of attributes and their column names in the table.
  *
  * @author Cameron M
  * @since 02-21-2023
