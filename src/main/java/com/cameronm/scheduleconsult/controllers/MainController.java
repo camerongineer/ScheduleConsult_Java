@@ -518,7 +518,7 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
                     "You have appointments within the next " + Main.APPOINTMENT_REMINDER_MINUTES + " minutes:");
             for (Appointment appointment : appointments) {
                 LocalDateTime localTime =
-                        TimeConversionService.convertFromServerTime(appointment.getStart())
+                        appointment.getStart()
                                              .toLocalDateTime();
                 message.append("\n")
                        .append(appointment.getName())

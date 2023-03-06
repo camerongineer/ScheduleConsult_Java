@@ -2,6 +2,7 @@ package com.cameronm.scheduleconsult;
 
 import com.cameronm.scheduleconsult.DAO.DBConnection;
 import com.cameronm.scheduleconsult.controllers.LoginController;
+import com.cameronm.scheduleconsult.services.TimeConversionService;
 import com.cameronm.scheduleconsult.utilities.ScreenLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -34,6 +35,11 @@ public class Main extends Application {
      * The ZoneId of the company for appointment scheduling purposes
      */
     public static final ZoneId COMPANY_ZONE_ID = ZoneId.of("America/New_York");
+
+    /**
+     * The zoneId of the server
+     */
+    public static ZoneId serverZoneID;
 
     /**
      * The days of the week that company is open for appointment scheduling purposes
@@ -94,6 +100,11 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         DBConnection.openConnection();
+        DBConnection.setServerTimezone();
+        serverZoneID = DBConnection.getServerTimezone();
+        System.out.printf("The %s timezone is set to %s\n", "server", TimeConversionService.SERVER_ZONE_ID);
+        System.out.printf("The %s timezone is %s\n", "local", TimeConversionService.LOCAL_ZONE_ID);
+        System.out.printf("The %s timezone is %s\n", "company", TimeConversionService.COMPANY_ZONE_ID);
         launch(args);
     }
 

@@ -128,13 +128,15 @@ abstract public class InputValidator implements TimeConversionService {
      * @param endDate               The end date that was entered
      * @param endTime               The end time that was entered
      * @param modifiedAppointmentId The ID of the appointment
+     * @param customerID            The ID of the customer
      * @return Returns an exception with a message specifying the error
      */
     public static Exception checkValidDateRange(LocalDate startDate,
                                                 LocalTime startTime,
                                                 LocalDate endDate,
                                                 LocalTime endTime,
-                                                String modifiedAppointmentId) {
+                                                String modifiedAppointmentId,
+                                                String customerID) {
         if (startDate == null || startTime == null) {
             return new IllegalArgumentException("Start Date/Time");
         }
@@ -183,13 +185,15 @@ abstract public class InputValidator implements TimeConversionService {
                     "The appointment start date and end date must occur on the same business day between %s to %s",
                     validStartTime, validEndTime));
         }
-        if (AppointmentQueryService.appointmentExistsInRange(
+        if (AppointmentQueryService.existingCustomerAppointmentsInRange(
                 startDate,
                 startTime,
                 endDate,
                 endTime,
-                modifiedAppointmentId)) {
-            return new IllegalStateException("An appointment already exist during this time");
+                modifiedAppointmentId,
+                customerID
+                )) {
+            return new IllegalStateException("The customer has an existing appointment during this time");
         }
         return null;
     }

@@ -1,9 +1,11 @@
 package com.cameronm.scheduleconsult.DAO;
 
+import com.cameronm.scheduleconsult.services.QueryService;
 import com.cameronm.scheduleconsult.settings.DatabaseConfig;
 import com.cameronm.scheduleconsult.settings.UserCredentialConfig;
 
 import java.sql.*;
+import java.time.ZoneId;
 
 /**
  * The DBConnection class is responsible for managing the connection to a MySQL database using the JDBC API. The
@@ -58,5 +60,27 @@ public abstract class DBConnection implements UserCredentialConfig, DatabaseConf
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
         }
+    }
+
+    /**
+     * The getServerTimezone method returns the timezone for the server
+     *
+     * @return Returns the timezone of the server
+     */
+    public static ZoneId getServerTimezone() {
+        try {
+            ResultSet resultSet = QueryService.getResultsSet("SELECT @@SESSION.time_zone as time_zone;");
+            resultSet.next();
+            return ZoneId.of(resultSet.getString("time_zone"));
+        } catch (Exception exception) {
+            return ZoneId.of("UTC");
+        }
+    }
+
+    /**
+     * The setServerTimezone method sets the timezone to UTC
+     */
+    public static void setServerTimezone() {
+        QueryService.execute("SET @@SESSION.time_zone = '+00:00'");
     }
 }

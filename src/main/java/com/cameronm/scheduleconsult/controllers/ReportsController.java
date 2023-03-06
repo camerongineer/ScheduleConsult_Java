@@ -5,7 +5,6 @@ import com.cameronm.scheduleconsult.models.Contact;
 import com.cameronm.scheduleconsult.models.User;
 import com.cameronm.scheduleconsult.services.AppointmentQueryService;
 import com.cameronm.scheduleconsult.services.ContactQueryService;
-import com.cameronm.scheduleconsult.services.TimeConversionService;
 import com.cameronm.scheduleconsult.services.UserQueryService;
 import com.cameronm.scheduleconsult.utilities.CredentialLogger;
 import com.cameronm.scheduleconsult.utilities.UIHelper;
@@ -120,9 +119,9 @@ public class ReportsController implements Initializable {
                                             appointment.getUserId() == user.getId())
                     .toList();
             StringBuilder report = new StringBuilder();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy 'at' h:mm a");
             modifiedUpdates.forEach(appointment -> {
-                Timestamp lastUpdated = TimeConversionService.convertFromServerTime(appointment.getLastUpdated());
+                Timestamp lastUpdated = appointment.getLastUpdated();
                 report
                         .append("Appointment with ID: ")
                         .append(appointment.getId())

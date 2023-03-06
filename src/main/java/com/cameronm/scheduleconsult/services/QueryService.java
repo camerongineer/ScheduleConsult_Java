@@ -24,7 +24,7 @@ public abstract class QueryService implements DBQueries {
      * @param sqlQuery The query executed
      * @return Returns boolean confirming success of query execution
      */
-    private static boolean execute(String sqlQuery) {
+    public static boolean execute(String sqlQuery) {
         try (
                 Statement statement = DBConnection.getConnection()
                                                   .prepareStatement(sqlQuery)
@@ -44,7 +44,7 @@ public abstract class QueryService implements DBQueries {
      * @return Returns the result set of the query
      * @throws SQLException Throws SQLException if unsuccessful
      */
-    static ResultSet getResultsSet(String sqlQuery) throws SQLException {
+    public static ResultSet getResultsSet(String sqlQuery) throws SQLException {
         Statement statement = DBConnection.getConnection()
                                           .prepareStatement(sqlQuery);
         return statement.executeQuery(sqlQuery);

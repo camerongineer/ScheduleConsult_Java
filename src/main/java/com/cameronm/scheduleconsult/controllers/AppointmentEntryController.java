@@ -167,13 +167,11 @@ public class AppointmentEntryController implements Initializable, TimeConversion
         LocalDate startDate = startDatePicker.getValue();
         LocalTime startTime = startTimeComboBox.getSelectionModel()
                                                .getSelectedItem();
-        Timestamp startTimestamp = Timestamp.valueOf(LocalDateTime.of(startDate, startTime));
-        startTimestamp = TimeConversionService.convertToServerTime(startTimestamp);
+        Timestamp startTimestamp = TimeConversionService.convertToServerTime(Timestamp.valueOf(LocalDateTime.of(startDate, startTime)));
         LocalDate endDate = endDatePicker.getValue();
         LocalTime endTime = endTimeComboBox.getSelectionModel()
                                            .getSelectedItem();
-        Timestamp endTimestamp = Timestamp.valueOf(LocalDateTime.of(endDate, endTime));
-        endTimestamp = TimeConversionService.convertToServerTime(endTimestamp);
+        Timestamp endTimestamp = TimeConversionService.convertToServerTime(Timestamp.valueOf(LocalDateTime.of(endDate, endTime)));
         if (appointment == null) {
             appointment = AppointmentQueryService.addAppointment(
                     new Appointment(-1,
@@ -385,6 +383,7 @@ public class AppointmentEntryController implements Initializable, TimeConversion
             timeComboBox.getSelectionModel()
                         .selectFirst();
         }
+        Collections.sort(timeComboBox.getItems());
         datePicker.setConverter(TimeConversionService.displayedDateTime(MONTH_DAY_FORMAT));
         timeComboBox.setConverter(TimeConversionService.displayedDateTime(HOURS_FORMAT));
     }
@@ -524,18 +523,19 @@ public class AppointmentEntryController implements Initializable, TimeConversion
                                                       typeTextField.getText(),
                                                       50,
                                                       false));
-        exceptions.add(InputValidator.checkValidDateRange(
-                startDatePicker.getValue(),
-                startTimeComboBox.getValue(),
-                endDatePicker.getValue(),
-                endTimeComboBox.getValue(),
-                appointmentIdTextField.getText()));
         exceptions.add(InputValidator.checkValidInput("Customer ID",
                                                       customerIdTextField.getText(),
                                                       10, true));
         exceptions.add(InputValidator.checkValidInput("User ID",
                                                       userIdTextField.getText(),
                                                       10, true));
+        exceptions.add(InputValidator.checkValidDateRange(
+                startDatePicker.getValue(),
+                startTimeComboBox.getValue(),
+                endDatePicker.getValue(),
+                endTimeComboBox.getValue(),
+                appointmentIdTextField.getText(),
+                customerIdTextField.getText()));
         exceptions.removeIf(Objects::isNull);
         return exceptions;
     }

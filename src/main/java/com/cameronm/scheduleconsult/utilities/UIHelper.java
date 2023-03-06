@@ -137,18 +137,23 @@ public abstract class UIHelper {
                                                               RadioButton monthRadioButton) {
         Year year = yearComboBox.getValue();
         LocalDate interval = intervalComboBox.getValue();
-        if (year != null && interval != null) {
+        if (year != null) {
             LocalDateTime start = null;
             LocalDateTime end = null;
-            if (weekRadioButton.isSelected()) {
-                start = interval.atStartOfDay();
-                LocalDate nextSaturday = interval.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
-                end = LocalDateTime.of(nextSaturday, LocalTime.MAX);
-            } else if (monthRadioButton.isSelected()) {
-                start = LocalDateTime.of(year.getValue(), interval.getMonth(), 1, 0, 0, 0);
-                end = LocalDateTime.of(year.getValue(), interval.getMonth(), interval.lengthOfMonth(), 23, 59, 59);
+            if (interval != null) {
+                if (weekRadioButton.isSelected()) {
+                    start = interval.atStartOfDay();
+                    LocalDate nextSaturday = interval.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+                    end = LocalDateTime.of(nextSaturday, LocalTime.MAX);
+                } else if (monthRadioButton.isSelected()) {
+                    start = LocalDateTime.of(year.getValue(), interval.getMonth(), 1, 0, 0, 0);
+                    end = LocalDateTime.of(year.getValue(), interval.getMonth(), interval.lengthOfMonth(), 23, 59, 59);
+                }
+                assert start != null;
+            } else {
+                start = year.atDay(1).atStartOfDay();
+                end = start.plusYears(1).minusSeconds(1);
             }
-            assert start != null;
             return AppointmentQueryService.getAppointmentsInRange(Timestamp.valueOf(start), Timestamp.valueOf(end));
         }
         return AppointmentQueryService.getAllAppointments();

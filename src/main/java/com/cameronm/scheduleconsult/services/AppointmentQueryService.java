@@ -163,10 +163,14 @@ public abstract class AppointmentQueryService extends QueryService implements DB
         statement.setInt(1, appointment.getContactId());
         statement.setInt(2, appointment.getCustomerId());
         statement.setString(3, appointment.getDescription());
-        statement.setTimestamp(4, appointment.getEnd());
+        statement.setString(4,
+                            appointment.getEnd()
+                                       .toString());
         statement.setString(5, appointment.getLocation());
         statement.setString(6, appointment.getName());
-        statement.setTimestamp(7, appointment.getStart());
+        statement.setString(7,
+                            appointment.getStart()
+                                       .toString());
         statement.setString(8, appointment.getType());
         statement.setInt(9, appointment.getUserId());
         if (setCreatedBy) {
@@ -253,13 +257,15 @@ public abstract class AppointmentQueryService extends QueryService implements DB
      * @param endDate               The end date of the range
      * @param endTime               The end time of the range
      * @param modifiedAppointmentId The ID of the appointment that is being modified
+     * @param customerID            The ID of the customer
      * @return Returns a boolean specifying if there is an appointment within the range
      */
-    public static boolean appointmentExistsInRange(LocalDate startDate,
-                                                   LocalTime startTime,
-                                                   LocalDate endDate,
-                                                   LocalTime endTime,
-                                                   String modifiedAppointmentId) {
+    public static boolean existingCustomerAppointmentsInRange(LocalDate startDate,
+                                                              LocalTime startTime,
+                                                              LocalDate endDate,
+                                                              LocalTime endTime,
+                                                              String modifiedAppointmentId,
+                                                              String customerID) {
         Timestamp startTimestamp = Timestamp.valueOf(LocalDateTime.of(startDate, startTime));
         Timestamp endTimestamp = Timestamp.valueOf(LocalDateTime.of(endDate, endTime));
         Timestamp convertedStart = TimeConversionService.convertToServerTime(startTimestamp);
@@ -272,6 +278,7 @@ public abstract class AppointmentQueryService extends QueryService implements DB
         if (!modifiedAppointmentId.isEmpty()) {
             sqlQuery += (AND + String.format(NOT_EQUAL_INTEGER, ATTRIBUTES.get("id"), modifiedAppointmentId));
         }
+        sqlQuery += (AND + String.format(EQUALS_INTEGER, ATTRIBUTES.get("customerId"), Integer.parseInt(customerID)));
         return queryHasMatches(sqlQuery);
     }
 

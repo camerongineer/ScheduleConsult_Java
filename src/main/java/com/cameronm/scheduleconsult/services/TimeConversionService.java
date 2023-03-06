@@ -1,14 +1,12 @@
 package com.cameronm.scheduleconsult.services;
 
 import com.cameronm.scheduleconsult.Main;
-import com.cameronm.scheduleconsult.settings.DatabaseConfig;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.util.StringConverter;
 
 import java.sql.Timestamp;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 
 /**
@@ -27,7 +25,7 @@ public interface TimeConversionService {
     /**
      * The ZoneId of that the server utilizes
      */
-    ZoneId SERVER_ZONE_ID = DatabaseConfig.DB_ZONE_ID;
+    ZoneId SERVER_ZONE_ID = Main.serverZoneID;
 
     /**
      * The ZoneId of the company for appointment scheduling purposes
@@ -185,24 +183,7 @@ public interface TimeConversionService {
      * @return Returns a converted timestamp
      */
     static Timestamp convertTime(Timestamp timeToConvert, ZoneId originZoneId, ZoneId outputZoneId) {
-        LocalDateTime localDateTime = timeToConvert.toLocalDateTime();
-        long offsetHours = getHoursOffset(originZoneId, outputZoneId);
-        LocalDateTime convertedLocalDateTime = localDateTime.plusHours(offsetHours);
-        return Timestamp.valueOf(convertedLocalDateTime);
-    }
-
-    /**
-     * The getHoursOffset returns the amount of hours between 2 timezones
-     *
-     * @param originZoneId   The timezone of origin
-     * @param comparedZoneId The timezone of being compared
-     * @return Returns a converted timestamp
-     */
-    static long getHoursOffset(ZoneId originZoneId, ZoneId comparedZoneId) {
-        LocalDateTime truncatedOrigin = LocalDateTime.now(originZoneId)
-                                                     .truncatedTo(ChronoUnit.SECONDS);
-        LocalDateTime truncatedOutput = LocalDateTime.now(comparedZoneId)
-                                                     .truncatedTo(ChronoUnit.SECONDS);
-        return ChronoUnit.HOURS.between(truncatedOrigin, truncatedOutput);
+        ZonedDateTime origin = ZonedDateTime.of(timeToConvert.toLocalDateTime(), originZoneId);
+        return Timestamp.valueOf(origin.withZoneSameInstant(outputZoneId).toLocalDateTime());
     }
 }
