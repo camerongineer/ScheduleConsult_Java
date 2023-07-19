@@ -1,0 +1,28 @@
+.root * {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-font-family: 'Roboto Light', Georgia, "Times New Roman", Times, serif;
+    -fx-text-fill: white;
+    -fx-font-size: 125%;
+}
+
+.root {
+    -fx-background-color: #264653;
+    -fx-font-scale: 2;
+
+}
+
+.text-field {
+    -fx-background-color: rgba(231, 111, 81, 0.25);
+    -fx-border-color: black;
+}
+
+.button {
+    -fx-background-color: rgba(231, 111, 81, .75);
+    -fx-text-fill: white;
+    -fx-border-color: black;
+}
+
+.image-view {
+    -fx-image: url("../images/title_logo.png");
+}
