@@ -65,7 +65,10 @@ public abstract class ScreenLoader {
         Scene scene = new Scene(root);
         Image logoImage = new Image(Main.IMAGES_PATH + "title_icon.png");
         stage.getIcons().add(logoImage);
-        scene.getStylesheets().add(Objects.requireNonNull(ScreenLoader.class.getResource(Main.CSS_PATH + "style.css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(ScreenLoader
+                                                                  .class
+                                                                  .getResource(Main.CSS_PATH + "style.css"))
+                                          .toExternalForm());
         stage.setTitle(title);
         stage.setScene(scene);
         stage.setResizable(isResizable);

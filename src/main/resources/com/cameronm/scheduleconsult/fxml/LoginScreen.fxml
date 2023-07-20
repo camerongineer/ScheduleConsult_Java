@@ -15,32 +15,32 @@
    <children>
       <Ellipse fill="#e9c46a" layoutX="250.0" layoutY="110.0" radiusX="347.0" radiusY="178.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Ellipse fill="#f4a261" layoutX="362.0" layoutY="187.0" radiusX="293.0" radiusY="139.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="68.0" />
-      <ImageView fitHeight="320.0" fitWidth="611.0" layoutX="57.0" layoutY="48.0" mouseTransparent="true" pickOnBounds="true">
+      <ImageView fitHeight="389.0" fitWidth="630.0" layoutX="54.0" layoutY="-10.0" mouseTransparent="true" pickOnBounds="true">
          <cursor>
             <Cursor fx:constant="NONE" />
          </cursor>
       </ImageView>
-      <Label fx:id="versionLabel" layoutX="14.0" layoutY="535.0" prefHeight="36.0" prefWidth="53.0">
+      <Label fx:id="versionLabel" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="537.0" prefHeight="27.0" prefWidth="53.0">
          <font>
             <Font name="Arial Bold" size="9.0" />
          </font>
       </Label>
-      <Button fx:id="signInButton" layoutX="545.0" layoutY="439.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signInButtonClicked" prefHeight="46.0" prefWidth="111.0" AnchorPane.rightAnchor="66.66666666666663" />
-      <TextField fx:id="usernameTextField" layoutX="143.0" layoutY="409.0" onKeyTyped="#usernameTextFieldTyped" prefHeight="46.0" prefWidth="338.0" promptText="Enter Username">
+      <Button fx:id="signInButton" layoutX="545.0" layoutY="437.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signInButtonClicked" prefHeight="46.0" prefWidth="111.0" AnchorPane.rightAnchor="66.66666666666663" />
+      <TextField fx:id="usernameTextField" layoutX="143.0" layoutY="407.0" onKeyTyped="#usernameTextFieldTyped" prefHeight="46.0" prefWidth="338.0" promptText="Enter Username">
          <opaqueInsets>
             <Insets />
          </opaqueInsets></TextField>
-      <PasswordField fx:id="passwordPasswordField" layoutX="143.0" layoutY="478.0" onKeyTyped="#passwordPasswordFieldTyped" prefHeight="46.0" prefWidth="338.0" promptText="Enter Password" />
-      <Label fx:id="translatedTitleLabel" alignment="CENTER" ellipsisString="" layoutX="208.0" layoutY="270.0" prefHeight="27.0" prefWidth="174.0" style="-fx-text-fill: black; -fx-font-size: 100%;" styleClass="title-translation">
+      <PasswordField fx:id="passwordPasswordField" layoutX="143.0" layoutY="476.0" onKeyTyped="#passwordPasswordFieldTyped" prefHeight="46.0" prefWidth="338.0" promptText="Enter Password" />
+      <Label fx:id="translatedTitleLabel" alignment="CENTER" ellipsisString="" layoutX="174.0" layoutY="244.0" prefHeight="27.0" prefWidth="174.0" style="-fx-text-fill: black; -fx-font-size: 100%;" styleClass="title-translation">
          <font>
             <Font name="Arial" size="9.0" />
          </font>
       </Label>
-      <Label fx:id="zoneIDLabel" alignment="BOTTOM_RIGHT" layoutX="487.0" layoutY="524.0" prefHeight="46.0" prefWidth="227.0" textAlignment="RIGHT">
+      <Label fx:id="zoneIDLabel" alignment="BOTTOM_RIGHT" layoutX="485.0" layoutY="524.0" prefHeight="40.0" prefWidth="223.0" textAlignment="RIGHT">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="credentialErrorLabel" alignment="CENTER" layoutX="143.0" layoutY="529.0" prefHeight="30.0" prefWidth="338.0" textAlignment="CENTER" textFill="#ed0303" />
+      <Label fx:id="credentialErrorLabel" alignment="TOP_CENTER" layoutX="143.0" layoutY="527.0" prefHeight="53.0" prefWidth="338.0" textAlignment="CENTER" textFill="#ed0303" />
    </children>
 </AnchorPane>

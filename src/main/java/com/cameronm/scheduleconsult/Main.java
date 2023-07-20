@@ -96,7 +96,7 @@ public class Main extends Application {
     /**
      * The version number of the program
      */
-    public static final String PROGRAM_VERSION = "v1.0";
+    public static final String PROGRAM_VERSION = "v1.1";
 
     /**
      * The title of the program
