@@ -1,0 +1,151 @@
+.root * {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-font-family: 'Roboto Light', Georgia, "Times New Roman", Times, serif;
+
+}
+
+.root {
+    -fx-background-color: #264653;
+    -fx-font-scale: 2;
+}
+
+.button,
+.combo-box .text,
+.date-picker .text,
+.label,
+.radio-button .text,
+.tab-label,
+.table-cell,
+.text-field,
+.list-cell {
+    -fx-text-fill: white;
+    -fx-fill: white;
+    -fx-font-size: 125%;
+}
+
+
+.combo-box > *,
+.date-picker > *,
+.arrow-button *,
+.list-cell:selected,
+.text-field {
+    -fx-background-color: rgb(94, 86, 83);
+    -fx-border-color: black;
+}
+
+.combo-box:editable .text-field {
+    -fx-border-style: none;
+}
+
+.date-picker-display-node {
+    -fx-border-style: none;
+}
+
+.text-field:focused {
+    -fx-background-color: rgba(231, 111, 81, 0.50);
+}
+
+
+.button {
+    -fx-background-color: rgba(231, 111, 81, .60);
+    -fx-border-color: black;
+}
+
+.button:pressed {
+    -fx-background-color: rgba(231, 111, 81);
+}
+
+.text-field:hover,
+.button:hover {
+    -fx-border-color: white;
+}
+
+.image-view {
+    -fx-image: url("../images/title_logo.png");
+}
+
+
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill: white;
+}
+
+.table-view {
+    -fx-background-color: rgb(94, 86, 83);
+    -fx-border-color: black;
+}
+
+.table-view .text {
+    -fx-text-fill: white;
+}
+
+.date-picker,
+.combo-box,
+.combo-box .list-view,
+.list-cell,
+.menu-item {
+    -fx-background-color: rgba(38, 70, 83, 0.8);
+    -fx-border-width: 0;
+}
+
+.menu * {
+    -fx-border-width: 0;
+}
+
+
+.list-cell:selected {
+    -fx-border-width: 1;
+}
+
+.table-row-cell {
+    -fx-background-color: rgba(244, 162, 97, .05);
+    -fx-fill: black;
+}
+
+.table-row-cell:even {
+    -fx-background-color: rgba(244, 162, 97, .15);
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(244, 162, 97, .25);
+}
+
+.table-row-cell:focused {
+    -fx-background-color: rgba(244, 162, 97, 0.40);
+}
+
+.menu-bar .container {
+    -fx-border-style: none;
+}
+
+.tab-header-background {
+    -fx-background-color: #264653;
+    -fx-border-style: none;
+}
+
+.tab,
+.column-header,
+.scroll-bar,
+.track,
+.scroll-pane {
+    -fx-background-color: #1a3038;
+    -fx-border-color: black;
+}
+
+.thumb {
+    -fx-background-color: #274956;
+}
+
+.date-picker:hover,
+.combo-box:hover,
+.list-cell:hover,
+.tab:hover {
+    -fx-border-color: white;
+    -fx-border-width: 1;
+}
+
+.menu-bar {
+    -fx-background-color: #2A9D8F;
+    -fx-fill: none;
+}
+

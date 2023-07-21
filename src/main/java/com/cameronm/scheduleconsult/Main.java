@@ -27,6 +27,16 @@ public class Main extends Application {
     public static final String VIEWS_PATH = "/com/cameronm/scheduleconsult/fxml/";
 
     /**
+     * The location of the css files
+     */
+    public static final String CSS_PATH = "/com/cameronm/scheduleconsult/css/";
+
+    /**
+     * The location of the image files
+     */
+    public static final String IMAGES_PATH = "/com/cameronm/scheduleconsult/images/";
+
+    /**
      * The locale of the system for adjusting language within the program
      */
     public static final Locale LOCALE = Locale.getDefault();
@@ -86,7 +96,7 @@ public class Main extends Application {
     /**
      * The version number of the program
      */
-    public static final String PROGRAM_VERSION = "v1.0";
+    public static final String PROGRAM_VERSION = "v1.1";
 
     /**
      * The title of the program

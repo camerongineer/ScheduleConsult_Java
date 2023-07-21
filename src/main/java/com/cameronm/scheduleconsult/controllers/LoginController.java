@@ -35,22 +35,10 @@ public class LoginController implements Initializable, DBQueries {
     private static User programUser;
 
     /**
-     * The label displaying the language of the login screen
-     */
-    @FXML
-    private Label languageLabel;
-
-    /**
      * The label displaying the zoneID of the current location of use
      */
     @FXML
     private Label zoneIDLabel;
-
-    /**
-     * The label displaying the title of the program
-     */
-    @FXML
-    private Label titleLabel;
 
     /**
      * The label displaying a translation of the title for non-English languages
@@ -65,22 +53,10 @@ public class LoginController implements Initializable, DBQueries {
     private Label versionLabel;
 
     /**
-     * The label for the username textField
-     */
-    @FXML
-    private Label usernameLabel;
-
-    /**
      * The text field for entry of the username
      */
     @FXML
     private TextField usernameTextField;
-
-    /**
-     * The label for the password passwordField
-     */
-    @FXML
-    private Label passwordLabel;
 
     /**
      * The password field for entry of the password
@@ -122,13 +98,11 @@ public class LoginController implements Initializable, DBQueries {
      * The setLabels method sets the text for the labels and buttons based on the current language setting
      */
     private void setLabels(ResourceBundle resourceBundle) {
-        languageLabel.setText(resourceBundle.getString("languageLabel"));
-        zoneIDLabel.setText(String.valueOf(ZoneId.systemDefault()));
-        titleLabel.setText(Main.PROGRAM_TITLE);
+        zoneIDLabel.setText(resourceBundle.getString("languageLabel") + "\n" + ZoneId.systemDefault());
         translatedTitleLabel.setText(resourceBundle.getString("translatedTitleLabel"));
         versionLabel.setText(Main.PROGRAM_VERSION);
-        usernameLabel.setText(resourceBundle.getString("usernameLabel"));
-        passwordLabel.setText(resourceBundle.getString("passwordLabel"));
+        usernameTextField.setPromptText(resourceBundle.getString("usernamePrompt"));
+        passwordPasswordField.setPromptText(resourceBundle.getString("passwordPrompt"));
         signInButton.setText(resourceBundle.getString("signInButton"));
     }
 

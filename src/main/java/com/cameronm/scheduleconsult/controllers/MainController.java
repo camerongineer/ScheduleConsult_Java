@@ -526,11 +526,11 @@ public class MainController implements Initializable, DBQueries, TimeConversionS
                        .append(localTime.format(HOURS_FORMAT))
                        .append(".");
             }
-            AlertHandler.notification(message.toString(), Color.ROSYBROWN);
+            AlertHandler.notification(message.toString(), Color.valueOf("#E76F51"));
         } else {
             AlertHandler.notification(String.format("There are no appointments within the next %d minutes",
                                                     Main.APPOINTMENT_REMINDER_MINUTES),
-                                      Color.LIGHTSKYBLUE);
+                                      Color.valueOf("#2A9D8F"));
         }
     }
 

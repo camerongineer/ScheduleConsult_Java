@@ -8,56 +8,56 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cameronm.scheduleconsult.controllers.CustomerEntryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="930.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cameronm.scheduleconsult.controllers.CustomerEntryController">
    <children>
-      <Label alignment="TOP_CENTER" layoutX="477.0" layoutY="35.0" prefHeight="59.0" prefWidth="410.0" text="Customers">
+      <Label alignment="CENTER" layoutX="481.0" prefHeight="127.0" prefWidth="410.0" style="-fx-font-size: 35;" text="Customer">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="40.0" prefHeight="25.0" prefWidth="34.0" text="ID:">
+      <Label alignment="CENTER_RIGHT" layoutX="105.0" layoutY="38.0" prefHeight="40.0" prefWidth="34.0" text="ID:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <TextField fx:id="customerIdTextField" disable="true" editable="false" layoutX="126.0" layoutY="40.0" prefHeight="25.0" prefWidth="82.0" promptText="Auto-Gen" />
-      <Label alignment="CENTER_RIGHT" layoutX="84.0" layoutY="73.0" prefHeight="25.0" prefWidth="41.0" text="Name:">
+      <TextField fx:id="customerIdTextField" disable="true" editable="false" layoutX="139.0" layoutY="38.0" prefHeight="40.0" prefWidth="89.0" promptText="Auto-Gen" />
+      <Label alignment="CENTER_RIGHT" layoutX="83.0" layoutY="83.0" prefHeight="40.0" prefWidth="55.0" text="Name:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <TextField fx:id="nameTextField" layoutX="126.0" layoutY="73.0" prefHeight="25.0" prefWidth="342.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="43.0" layoutY="105.0" prefHeight="25.0" prefWidth="82.0" text="Address:">
+      <TextField fx:id="nameTextField" layoutX="139.0" layoutY="83.0" prefHeight="40.0" prefWidth="342.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="128.0" prefHeight="40.0" prefWidth="82.0" text="Address:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <TextField fx:id="addressTextField" layoutX="126.0" layoutY="105.0" prefHeight="25.0" prefWidth="735.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="43.0" layoutY="137.0" prefHeight="25.0" prefWidth="82.0" text="Postal Code:">
+      <TextField fx:id="addressTextField" layoutX="139.0" layoutY="128.0" prefHeight="40.0" prefWidth="753.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="27.0" layoutY="173.0" prefHeight="40.0" prefWidth="110.0" text="Postal Code:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <TextField fx:id="postalCodeTextField" layoutX="126.0" layoutY="137.0" prefHeight="25.0" prefWidth="197.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="324.0" layoutY="137.0" prefHeight="25.0" prefWidth="67.0" text="Division:">
+      <TextField fx:id="postalCodeTextField" layoutX="139.0" layoutY="173.0" prefHeight="40.0" prefWidth="197.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="349.0" layoutY="173.0" prefHeight="40.0" prefWidth="67.0" text="Division:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <ComboBox fx:id="divisionComboBox" layoutX="395.0" layoutY="137.0" prefHeight="25.0" prefWidth="197.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="598.0" layoutY="137.0" prefHeight="25.0" prefWidth="67.0" text="Country:">
+      <ComboBox fx:id="divisionComboBox" layoutX="416.0" layoutY="173.0" prefHeight="40.0" prefWidth="197.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="625.0" layoutY="178.0" prefHeight="33.0" prefWidth="67.0" text="Country:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <ComboBox fx:id="countryComboBox" layoutX="666.0" layoutY="137.0" prefHeight="25.0" prefWidth="197.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="17.0" layoutY="171.0" prefHeight="25.0" prefWidth="110.0" text="Phone Number:">
+      <ComboBox fx:id="countryComboBox" layoutX="694.0" layoutY="173.0" prefHeight="40.0" prefWidth="197.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="27.0" layoutY="226.0" prefHeight="25.0" prefWidth="110.0" text="Phone Number:">
          <padding>
             <Insets right="5.0" />
          </padding>
       </Label>
-      <TextField fx:id="phoneTextField" layoutX="128.0" layoutY="171.0" prefHeight="25.0" prefWidth="342.0" />
-      <Button fx:id="saveButton" layoutX="697.0" layoutY="183.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="67.0" text="Save" />
-      <Button fx:id="cancelButton" layoutX="793.0" layoutY="183.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="67.0" text="Cancel" />
+      <TextField fx:id="phoneTextField" layoutX="139.0" layoutY="219.0" prefHeight="40.0" prefWidth="342.0" />
+      <Button fx:id="saveButton" layoutX="694.0" layoutY="219.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="40.0" prefWidth="82.0" text="Save" />
+      <Button fx:id="cancelButton" layoutX="809.0" layoutY="219.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="40.0" prefWidth="82.0" text="Cancel" />
    </children>
 </AnchorPane>

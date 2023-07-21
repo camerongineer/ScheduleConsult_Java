@@ -8,10 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * The ScreenLoader class is responsible for loading the screens of the program
@@ -61,6 +63,12 @@ public abstract class ScreenLoader {
         FXMLLoader loader = new FXMLLoader(nextController.getResource(screenLocation));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        Image logoImage = new Image(Main.IMAGES_PATH + "title_icon.png");
+        stage.getIcons().add(logoImage);
+        scene.getStylesheets().add(Objects.requireNonNull(ScreenLoader
+                                                                  .class
+                                                                  .getResource(Main.CSS_PATH + "style.css"))
+                                          .toExternalForm());
         stage.setTitle(title);
         stage.setScene(scene);
         stage.setResizable(isResizable);

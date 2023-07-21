@@ -110,7 +110,8 @@ public interface AlertHandler {
         String id = String.valueOf(entity.getId());
         String name = entity.getName();
         String modificationType = deleted ? "deleted" : "saved";
-        notification(String.format("%s %s\n\nID: %s - \"%s\"", type, modificationType, id, name), Color.GREEN);
+        notification(String.format("%s %s\n\nID: %s - \"%s\"", type, modificationType, id, name),
+                     Color.valueOf("#2A9D8F"));
     }
 
     /**
@@ -186,12 +187,12 @@ public interface AlertHandler {
     static void notification(String message, Color color) {
         Stage popup = new Stage();
         popup.initStyle(StageStyle.UNDECORATED);
-        popup.setMinWidth(500);
+        popup.setMinWidth(600);
         popup.setMinHeight(150);
         popup.setAlwaysOnTop(true);
 
         Label label = new Label(message);
-        label.setFont(new Font("Arial", 18));
+        label.setFont(new Font("Roboto Light", 20));
         VBox layout = new VBox(10);
         layout.getChildren()
               .add(label);
@@ -206,7 +207,7 @@ public interface AlertHandler {
         Scene scene = new Scene(layout);
         popup.setScene(scene);
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(4));
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
         delay.setOnFinished(e -> popup.hide());
         popup.show();
         delay.play();
